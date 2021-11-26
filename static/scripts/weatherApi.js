@@ -65,10 +65,10 @@ fetch("https://weatherapi-com.p.rapidapi.com/forecast.json?q=Chattanooga&days=2"
     console.log(set);
     
     // After sunset
-    for (let i = set; i < 24; i++) {
+    for (let i = set + 1; i < 24; i++) {
 
         const hour = `${i - 12}:00`
-        const info = `${hour}PM: ${today.hour[i].cloud}% cloudy`;
+        const info = `${hour}PM: ${today.hour[i].cloud}% cloudy - ${today.hour[i].wind_mph}mph winds`;
 
         // Output to HTML
         $("#hours").append(document.createTextNode(info));
@@ -80,7 +80,7 @@ fetch("https://weatherapi-com.p.rapidapi.com/forecast.json?q=Chattanooga&days=2"
 
         i === 0 ? hour = "12:00" : hour = `${i}:00`
 
-        const info = `${hour}AM: ${nextDay.hour[i].cloud}% cloudy`;
+        const info = `${hour}AM: ${nextDay.hour[i].cloud}% cloudy - ${today.hour[i].wind_mph}mph winds`;
 
         // Output to HTML
         $("#hours").append(document.createTextNode(info));

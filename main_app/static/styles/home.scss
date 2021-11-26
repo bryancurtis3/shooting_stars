@@ -1,5 +1,11 @@
 @import './variables';
 
+h1 {
+    font-size: 46px;
+    color: $text;
+    text-align: center;
+}
+
 .search {
     display: flex;
     justify-content: center;
@@ -40,7 +46,7 @@
 
 .info {
     display: grid;
-    grid-template-columns: 1;
+    grid-template-columns: 1fr;
     gap: 40px;
 
 
@@ -50,11 +56,21 @@
         border-radius: 6px;
         color: $text;
         font-size: 18px;
+        // -webkit-box-shadow: 0px 0px 12px 10px rgba(0,0,0,0.3); 
+        // box-shadow: 2px 3px 12px 10px rgba(0,0,0,.3);
 
         h3 {
             font-size: 28px;
             font-weight: bold;
             border-bottom: 1px solid $med;
         }
+    }
+
+
+}
+
+@media only screen and (min-width: 450px) {
+    .info {
+        grid-template-columns: 1fr 1fr;
     }
 }

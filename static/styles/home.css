@@ -1,3 +1,8 @@
+h1 {
+  font-size: 46px;
+  color: #f3e0ea;
+  text-align: center; }
+
 .search {
   display: flex;
   justify-content: center;
@@ -29,7 +34,7 @@
 
 .info {
   display: grid;
-  grid-template-columns: 1;
+  grid-template-columns: 1fr;
   gap: 40px; }
   .info .box {
     background-color: #5e548e;
@@ -41,5 +46,9 @@
       font-size: 28px;
       font-weight: bold;
       border-bottom: 1px solid #9f86c0; }
+
+@media only screen and (min-width: 450px) {
+  .info {
+    grid-template-columns: 1fr 1fr; } }
 
 /*# sourceMappingURL=home.css.map */
