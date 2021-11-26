@@ -1,0 +1,40 @@
+{% load static %}
+{% load sass_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{% sass_src 'styles/main.scss' %}">
+
+    {% block styles %}{% endblock styles %}
+
+    <!-- Scripts -->
+    {% block scripts %}{% endblock scripts %}
+
+    <title>Shooting Stars</title>
+</head>
+<body>
+
+    <nav>
+        <h2>Shooting Stars</h2>
+
+        <section class="nav-right">
+            <p>Placeholder</p>
+            <p>Text</p>
+        </section>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock content %}
+    </main>
+
+</body>
+</html>

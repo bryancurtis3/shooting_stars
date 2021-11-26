@@ -1,0 +1,45 @@
+.search {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px; }
+  .search input {
+    height: 60px;
+    width: 50vw;
+    min-width: 325px;
+    max-width: 600px;
+    padding: 10px;
+    font-size: 18px;
+    color: #f3e0ea;
+    background-color: #5e548e;
+    border-color: #be95c4;
+    border-radius: 6px; }
+    .search input::placeholder {
+      color: #9f86c0; }
+
+.iframe {
+  background-color: #231942;
+  opacity: .7;
+  z-index: 10;
+  height: 400px;
+  margin-bottom: 40px; }
+  .iframe iframe {
+    width: 100%;
+    height: inherit;
+    border: 3px solid #5e548e; }
+
+.info {
+  display: grid;
+  grid-template-columns: 1;
+  gap: 40px; }
+  .info .box {
+    background-color: #5e548e;
+    padding: 0 20px;
+    border-radius: 6px;
+    color: #f3e0ea;
+    font-size: 18px; }
+    .info .box h3 {
+      font-size: 28px;
+      font-weight: bold;
+      border-bottom: 1px solid #9f86c0; }
+
+/*# sourceMappingURL=home.css.map */

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load sass_tags %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% sass_src 'styles/home.scss' %}">
+{% endblock styles %}
+
+{% block scripts %}
+<script src="{% static 'scripts/weatherApi.js' %}"></script>
+{% endblock scripts %}
+
+
+{% block content %}
+
+    <section class="search">
+        <input type="text" Placeholder="Location">
+
+    </section>
+
+    {% comment %} <section class="iframe">
+        <iframe src="https://www.lightpollutionmap.info/#zoom=2.20&lat=39.7242&lon=-98.5634&layers=B0FFFFFFFTFFFFFFFFFF" title="description"></iframe>
+    </section> {% endcomment %}
+
+
+    {% comment %} <iframe src="https://darksitefinder.com/maps/world.html#4/39.00/-98.00
+" title="description"></iframe> {% endcomment %}
+
+    
+    <section class="info">
+
+        <div class="box">
+            <h3>Sun Position</h3>
+            <p id="sunrise"></p>
+            <p id="sunset"></p>
+        </div>
+
+        <div class="box">
+            <h3>Moon Position</h3>
+            <p id="moonrise"></p>
+            <p id="moonset"></p>
+        </div>
+
+        <div class="box">
+            <h3>Lunar Phase</h3>
+            <p id="phase"></p>
+            <p id="illumination"></p>
+        </div>
+
+        {% comment %} <div class="box">
+            <h3>Milky Way</h3>
+            <p id="phase"></p>
+            <p id="illumination"></p>
+        </div> {% endcomment %}
+        
+        <div class="box">
+            <h3>Hourly Clouds</h3>
+            <p id="hours"></p>
+        </div>
+
+    </section>
+
+
+
+{% endblock content %}
