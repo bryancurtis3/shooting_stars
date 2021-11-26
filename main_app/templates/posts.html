@@ -3,25 +3,53 @@
 {% load sass_tags %}
 
 {% block styles %}
-<link rel="stylesheet" href="styles/posts.css">
+<link rel="stylesheet" href="{% sass_src 'styles/posts.scss'%}">
 {% endblock styles %}
+
+{% block scripts %}
+<script src="{% static 'scripts/posts.js'%}"></script>
+{% endblock scripts %}
 
 
 {% block content %}
-<h1>Posts I did it!</h1>
 
-<h2>All Posts</h2>
+<section class="header">
 
+    <h1>All Posts</h1>
+
+    <section class="search">
+        <input type="text" Placeholder="Location">
+    </section>
+    
+</section>
+
+
+
+
+<section class="posts">
 {% for post in posts  %}
 
 <article class="post">
     <h3 class="title">{{post.title}}</h3>
+    <h4>{{post.user.username}}</h4>
     <p class="coords">{{post.lat}}, {{post.long}}</p>
     <img src="{{post.image}}" alt="Post image">
-    <p class="description">{{post.description}}</p>
+    <p class="description">
+        {{post.description|truncatechars:"150"}}
+        {% if post.description|length > 150 %}
+            <span id="more" onClick="more()">more</span>
+        {% endif %}
+    </p>
+    <p class="description-full">
+        {{post.description}}
+        <span onClick="more()">less</span>
+    </p>
+    
 </article>
 
 
 {% endfor %}
+</section>
+
 
 {% endblock content %}

@@ -15,11 +15,19 @@ main {
   color: #f3e0ea; }
 
 nav {
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
   background-color: #9f86c0; }
+  nav .logo {
+    font-size: 24px;
+    font-weight: 600; }
+  nav a {
+    font-weight: 500;
+    color: #231942;
+    text-decoration: none; }
   nav section {
     display: flex;
     justify-content: space-evenly;
@@ -31,7 +39,7 @@ nav {
     nav section .words {
       display: flex;
       justify-content: space-between; }
-      nav section .words p {
+      nav section .words a {
         margin-left: 20px; }
     @media only screen and (max-width: 420px) {
       nav section .words {

@@ -20,11 +20,23 @@ main {
 }
 
 nav {
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
     background-color: $med;
+
+    .logo {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    a {
+        font-weight: 500;
+        color: $dark;
+        text-decoration: none;
+    }
 
     section {
         display: flex;
@@ -41,7 +53,7 @@ nav {
             display: flex;
             justify-content: space-between;
 
-            p {
+            a {
                 margin-left: 20px;
             }
         }

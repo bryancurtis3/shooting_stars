@@ -1,0 +1,83 @@
+@import '_variables.scss';
+
+main {
+    padding-top: 10px;
+}
+
+.header {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    margin-bottom: 10px;
+
+    h1 {
+        text-align: center;
+    }
+
+    .search {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        input {
+            height: 40px;
+            width: 50vw;
+            min-width: 325px;
+            max-width: 600px;
+            padding: 10px;
+            font-size: 18px;
+            color: $text;
+            background-color: $meddark;
+            border-color: $medlight;
+            border-radius: 6px;
+    
+            &::placeholder {
+                color: $med;
+            }
+        }
+    }
+}
+
+.posts {
+    display: grid;
+    gap: 40px;
+
+    .post {
+        padding: 20px;
+        background-color: $meddark;
+        border-radius: 6px;
+    
+        .title {
+            font-size: 36px;
+            margin: 0 0 15px 0;
+        }
+    
+        h4 {
+            margin: 0;
+        }
+    
+        img {
+            width: 100%;
+            border-radius: 4px;
+        }
+    
+        .description, .description-full {
+            font-size: 18px;
+
+            span {
+                margin-left: 10px;
+                color: $light;
+                cursor: pointer;
+
+                &:hover {
+                    color: $text;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        .description-full {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,56 @@
+main {
+  padding-top: 10px; }
+
+.header {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin-bottom: 10px; }
+  .header h1 {
+    text-align: center; }
+  .header .search {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .header .search input {
+      height: 40px;
+      width: 50vw;
+      min-width: 325px;
+      max-width: 600px;
+      padding: 10px;
+      font-size: 18px;
+      color: #f3e0ea;
+      background-color: #5e548e;
+      border-color: #be95c4;
+      border-radius: 6px; }
+      .header .search input::placeholder {
+        color: #9f86c0; }
+
+.posts {
+  display: grid;
+  gap: 40px; }
+  .posts .post {
+    padding: 20px;
+    background-color: #5e548e;
+    border-radius: 6px; }
+    .posts .post .title {
+      font-size: 36px;
+      margin: 0 0 15px 0; }
+    .posts .post h4 {
+      margin: 0; }
+    .posts .post img {
+      width: 100%;
+      border-radius: 4px; }
+    .posts .post .description, .posts .post .description-full {
+      font-size: 18px; }
+      .posts .post .description span, .posts .post .description-full span {
+        margin-left: 10px;
+        color: #e0b1cb;
+        cursor: pointer; }
+        .posts .post .description span:hover, .posts .post .description-full span:hover {
+          color: #f3e0ea;
+          font-weight: 600; }
+    .posts .post .description-full {
+      display: none; }
+
+/*# sourceMappingURL=posts.css.map */
