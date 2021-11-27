@@ -8,6 +8,13 @@ main {
   margin-bottom: 10px; }
   .header h1 {
     text-align: center; }
+  .header .fa-plus-square {
+    font-size: 32px;
+    place-self: center;
+    transition: .1s ease-in-out;
+    cursor: pointer; }
+    .header .fa-plus-square:hover {
+      transform: scale(1.1); }
   .header .search {
     display: flex;
     justify-content: center;
@@ -52,5 +59,29 @@ main {
           font-weight: 600; }
     .posts .post .description-full {
       display: none; }
+
+.modal {
+  height: 600px;
+  width: 300px;
+  display: grid;
+  gap: 20px;
+  position: fixed;
+  justify-self: center;
+  top: 50vh;
+  left: 50vw;
+  margin-top: -300px;
+  margin-left: -150px;
+  padding: 20px;
+  border-radius: 6px;
+  background-color: #9f86c0;
+  z-index: 11; }
+  .modal p {
+    display: grid;
+    gap: 5px;
+    margin: 0; }
+    .modal p input, .modal p textarea {
+      padding: 5px; }
+    .modal p textarea {
+      max-width: 260px; }
 
 /*# sourceMappingURL=posts.css.map */

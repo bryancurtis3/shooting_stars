@@ -69,3 +69,16 @@ nav {
         }
     }
 }
+
+input, textarea {
+    padding: 10px;
+    font-size: 18px;
+    color: $text;
+    background-color: $meddark;
+    border-color: $medlight;
+    border-radius: 6px;
+
+    &::placeholder {
+        color: $med;
+    }
+}

@@ -14,6 +14,17 @@ main {
         text-align: center;
     }
 
+    .fa-plus-square {
+        font-size: 32px;
+        place-self: center;
+        transition: .1s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
     .search {
         display: flex;
         justify-content: center;
@@ -80,4 +91,36 @@ main {
             display: none;
         }
     }
+}
+
+.modal {
+    height: 600px;
+    width: 300px;
+    display: grid;
+    gap: 20px;
+    position: fixed;
+    justify-self: center;
+    top: 50vh;
+    left: 50vw;
+    margin-top: -300px;
+    margin-left: -150px;
+    padding: 20px;
+    border-radius: 6px;
+    background-color: $med;
+    z-index: 11;
+
+    p {
+        display: grid;
+        gap: 5px;
+        margin: 0;
+
+        input, textarea {
+            padding: 5px;
+        }
+
+        textarea {
+            max-width: 260px;
+        }
+    }
+
 }

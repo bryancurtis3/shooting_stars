@@ -1,0 +1,9 @@
+form {
+  display: grid;
+  place-items: center; }
+  form p {
+    width: 100%;
+    display: flex;
+    justify-content: center; }
+
+/*# sourceMappingURL=post_create.css.map */

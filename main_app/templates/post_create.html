@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load sass_tags %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% sass_src 'styles/post_create.scss' %}">
+{% endblock styles %}
+
+{% block content %}
+    <h1 class="title">Create a Post</h1>
+    <form method="post">
+        {% csrf_token %} 
+
+        {{from.errors}}
+
+        {{form.as_p}} 
+
+        <input type="submit" value="Submit" />
+    </form>
+{% endblock content %}

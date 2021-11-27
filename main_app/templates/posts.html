@@ -17,6 +17,8 @@
 
     <h1>All Posts</h1>
 
+    <i class="far fa-plus-square" onClick="modal()"></i>
+
     <form class="search" action="/posts" method="GET">
         <input 
         name="q"
@@ -27,9 +29,6 @@
     </form>
 
 </section>
-
-{{query}}
-
 
 
 
@@ -58,5 +57,8 @@
 {% endfor %}
 </section>
 
+<section class="modal">
+    {{form.as_p}}
+</section>
 
 {% endblock content %}

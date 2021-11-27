@@ -46,5 +46,14 @@ nav {
         display: none; }
       nav section .fa-star {
         display: block; } }
+input, textarea {
+  padding: 10px;
+  font-size: 18px;
+  color: #f3e0ea;
+  background-color: #5e548e;
+  border-color: #be95c4;
+  border-radius: 6px; }
+  input::placeholder, textarea::placeholder {
+    color: #9f86c0; }
 
 /*# sourceMappingURL=main.css.map */
