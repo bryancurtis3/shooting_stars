@@ -1,0 +1,23 @@
+.post {
+  padding: 20px;
+  background-color: #5e548e;
+  border-radius: 6px; }
+  .post .title {
+    font-size: 36px;
+    margin: 0 0 15px 0; }
+  .post h4 {
+    margin: 0; }
+  .post img {
+    width: 100%;
+    border-radius: 4px; }
+  .post .description {
+    font-size: 18px; }
+    .post .description span {
+      margin-left: 10px;
+      color: #e0b1cb;
+      cursor: pointer; }
+      .post .description span:hover {
+        color: #f3e0ea;
+        font-weight: 600; }
+
+/*# sourceMappingURL=post_detail.css.map */

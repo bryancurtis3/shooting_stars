@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load sass_tags %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% sass_src 'styles/post_detail.scss'%}">
+{% endblock styles %}
+
+{% block content %}
+
+<article class="post">
+    <h3 class="title">{{post.title}}</h3>
+    <h4>{{post.user.username}}</h4>
+    <p class="coords">{{post.lat}}, {{post.long}}</p>
+    <img src="{{post.image}}" alt="Post image">
+    <p class="description">
+        {{post.description}}
+    </p>
+    
+</article>
+
+{% endblock content %}

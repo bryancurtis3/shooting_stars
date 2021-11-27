@@ -4,6 +4,7 @@ from django.shortcuts import render
 
 from django.views import View
 from django.views.generic.base import TemplateView
+from django.views.generic.detail import DetailView
 
 from main_app.models import Post
 
@@ -18,5 +19,14 @@ class Posts(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["posts"] = Post.objects.all()
+        # context["query"] = self.kwargs['q']
         return context
 
+class PostDetail(DetailView):
+    model = Post
+    template_name = "post_detail.html"
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context["post"] = Post.objects.filter(id=id)
+    #     return context

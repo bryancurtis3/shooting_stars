@@ -17,11 +17,18 @@
 
     <h1>All Posts</h1>
 
-    <section class="search">
-        <input type="text" Placeholder="Location">
-    </section>
-    
+    <form class="search" action="/posts" method="GET">
+        <input 
+        name="q"
+        {% comment %} class="search" {% endcomment %}
+        type="search" 
+        placeholder="Search by coordinates"
+        >
+    </form>
+
 </section>
+
+{{query}}
 
 
 

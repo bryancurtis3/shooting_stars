@@ -1,48 +1,8 @@
-// fetch("https://weatherapi-com.p.rapidapi.com/astronomy.json?q=Chattanooga", {
-// 	"method": "GET",
-// 	"headers": {
-// 		"x-rapidapi-host": "weatherapi-com.p.rapidapi.com",
-// 		"x-rapidapi-key": "9cb1c64a74mshe483b1ba55588eep1ea8d5jsn22992105906a"
-// 	}
-// })
-// .then(response => response.json()
-// .then(json => {
-//     console.log(json)
-//     $("#sunrise").text("Sunrise: " + json.astronomy.astro.sunrise);
-//     $("#sunset").text("Sunset: " + json.astronomy.astro.sunset);
-//     $("#moonrise").text("Moonrise: " + json.astronomy.astro.moonrise);
-//     $("#moonset").text("Moonset: " + json.astronomy.astro.moonset);
-//     $("#phase").text("Moon Phase: " + json.astronomy.astro.moon_phase);
-//     $("#illumination").text("Illumination: " + json.astronomy.astro.moon_illumination + "%");
-// }))
-// .catch(err => {
-// 	console.error(err);
-// });
-
-
-
-// fetch("https://weatherapi-com.p.rapidapi.com/current.json?q=Chattanooga", {
-// 	"method": "GET",
-// 	"headers": {
-// 		"x-rapidapi-host": "weatherapi-com.p.rapidapi.com",
-// 		"x-rapidapi-key": "9cb1c64a74mshe483b1ba55588eep1ea8d5jsn22992105906a"
-// 	}
-// })
-// .then(response => response.json()
-// .then(json => {
-//     console.log(json)
-// }))
-// .catch(err => {
-// 	console.error(err);
-// });
-
-
-
 fetch("https://weatherapi-com.p.rapidapi.com/forecast.json?q=Chattanooga&days=2", {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "weatherapi-com.p.rapidapi.com",
-		"x-rapidapi-key": "9cb1c64a74mshe483b1ba55588eep1ea8d5jsn22992105906a"
+		"x-rapidapi-key": "9cb1c64a74mshe483b1ba55588eep1ea8d5jsn22992105906a",
 	}
 })
 .then(response => response.json()
