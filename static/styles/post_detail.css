@@ -3,10 +3,19 @@
   background-color: #5e548e;
   border-radius: 6px; }
   .post .title {
-    font-size: 36px;
-    margin: 0 0 15px 0; }
-  .post h4 {
-    margin: 0; }
+    font-size: 42px;
+    margin: 0 0 16px 0; }
+  .post .subtitle {
+    display: flex;
+    justify-content: space-between; }
+    .post .subtitle h4 {
+      display: inline;
+      align-self: center;
+      margin-top: 0;
+      margin: 0;
+      font-size: 18px; }
+    .post .subtitle .coords {
+      font-size: 15px; }
   .post img {
     width: 100%;
     border-radius: 4px; }
@@ -19,5 +28,11 @@
       .post .description span:hover {
         color: #f3e0ea;
         font-weight: 600; }
+
+.modal {
+  height: 160px;
+  margin-top: -80px; }
+  .modal h2 {
+    margin-top: 0; }
 
 /*# sourceMappingURL=post_detail.css.map */

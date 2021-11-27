@@ -6,3 +6,7 @@ const more = function more() {
 const modal = function modal() {
     $(".modal").toggle();
 }
+
+const message = function message() {
+    $(".message").hide();
+}

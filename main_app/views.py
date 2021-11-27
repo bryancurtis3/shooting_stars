@@ -8,8 +8,10 @@ from django.urls import reverse
 from django.views import View
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, DeleteView
 
+# from django.http import request
+from django.contrib import messages
 from django.forms import ModelForm, TextInput
 
 
@@ -56,3 +58,10 @@ class PostCreateForm(ModelForm):
             'title': TextInput(attrs={'class': 'myfieldclass'}),
         }
 
+class PostDelete(DeleteView):
+    model = Post
+    success_url = "/posts/"
+
+    def get_success_url(self):
+        messages.success(self.request, 'Post successfully deleted.')
+        return reverse('posts')

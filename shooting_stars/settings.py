@@ -135,3 +135,5 @@ STATIC_ROOT = BASE_DIR / 'static'
 SASS_PROCESSOR_ROOT = STATIC_ROOT
 
 STATIC_URL = '/static/'
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
