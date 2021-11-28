@@ -1,4 +1,4 @@
-@import '_variables.scss';
+@import '../variables';
 
 .post {
     padding: 20px;
@@ -20,6 +20,7 @@
             margin-top: 0;
             margin: 0;
             font-size: 18px;
+            // font-weight: 600;
         }
 
         .coords {
@@ -27,28 +28,13 @@
         }
     }
 
-
     img {
         width: 100%;
         border-radius: 4px;
     }
 
-
-
-
     .description {
         font-size: 18px;
-
-        span {
-            margin-left: 10px;
-            color: $light;
-            cursor: pointer;
-
-            &:hover {
-                color: $text;
-                font-weight: 600;
-            }
-        }
     }
 }
 
@@ -60,4 +46,14 @@
         margin-top: 0;
     }
 
+}
+
+.edit {
+    display: none;
+    height: 610px;
+    margin-top: -305px;
+
+    input {
+        margin-bottom: 10px;
+    }
 }

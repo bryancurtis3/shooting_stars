@@ -9,10 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Fontawesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    {% comment %} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> {% endcomment %}
 
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    {% comment %} <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> {% endcomment %}
 
     <!-- Styles -->
     <link rel="stylesheet" href="{% sass_src 'styles/main.scss' %}">
@@ -27,13 +27,13 @@
 <body>
 
     <nav>
-        <a class="logo" href="/">Shooting Stars</a>
+        <a class="logo" href="/" title="Shooting Stars Home">Shooting Stars</a>
 
         <section class="nav-right">
 
             <div class="words">
                 <a>Placeholder</a>
-                <a href="/posts">Posts</a>        
+                <a href="/posts" title="All Posts">Posts</a>        
             </div>
 
 

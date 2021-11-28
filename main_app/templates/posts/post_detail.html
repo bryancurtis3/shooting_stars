@@ -3,7 +3,7 @@
 {% load sass_tags %}
 
 {% block styles %}
-<link rel="stylesheet" href="{% sass_src 'styles/post_detail.scss'%}">
+<link rel="stylesheet" href="{% sass_src 'styles/posts/post_detail.scss'%}">
 {% endblock styles %}
 
 {% block scripts %}
@@ -23,6 +23,7 @@
         {{post.description}}
     </p>
     <button onClick="modal()">Delete</button>
+    <button onClick="edit()">Edit</button>
     
 </article>
 
@@ -32,5 +33,12 @@
         <a class="button" role="button" onclick="modal()">Cancel</a>
        <button>Delete</button>
 </form>
+
+{% comment %} <form class="edit" action="{% url 'post_update' post.pk %}" method="PATCH">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="button" value="Submit"></input>
+</form> {% endcomment %}
+
 
 {% endblock content %}

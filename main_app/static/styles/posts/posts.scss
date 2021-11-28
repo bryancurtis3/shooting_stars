@@ -1,10 +1,13 @@
-@import '_variables.scss';
+@import '../variables';
 
 main {
+    display: grid;
+    align-content: center;
     padding-top: 10px;
 }
 
 .header {
+    height: 68px;
     display: flex;
     gap: 40px;
     justify-content: center;
@@ -50,6 +53,8 @@ main {
 }
 
 .posts {
+    max-width: 800px;
+    justify-self: center;
     display: grid;
     gap: 40px;
 
@@ -59,12 +64,29 @@ main {
         border-radius: 6px;
     
         .title {
-            font-size: 36px;
             margin: 0 0 15px 0;
+            font-size: 36px;
+            font-weight: 600;
+            color: $text;
+            text-decoration: none;
         }
     
-        h4 {
-            margin: 0;
+        .subtitle {
+            display: flex;
+            justify-content: space-between;
+    
+            h4 {
+                display: inline;
+                align-self: center;
+                margin-top: 0;
+                margin: 0;
+                font-size: 18px;
+                // font-weight: 600;
+            }
+    
+            .coords {
+                font-size: 15px;
+            }
         }
     
         img {

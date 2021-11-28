@@ -77,7 +77,7 @@ button, .button {
   button:hover, .button:hover {
     background-color: #ad98c9; }
 
-.modal {
+.modal, .edit {
   height: 200px;
   width: 50%;
   min-width: 375px;
@@ -94,13 +94,13 @@ button, .button {
   border-radius: 6px;
   background-color: #9f86c0;
   z-index: 11; }
-  .modal p {
+  .modal p, .edit p {
     display: grid;
     gap: 5px;
     margin: 0; }
-    .modal p input, .modal p textarea {
+    .modal p input, .modal p textarea, .edit p input, .edit p textarea {
       padding: 5px; }
-    .modal p textarea {
+    .modal p textarea, .edit p textarea {
       max-width: 100%; }
 
 /*# sourceMappingURL=main.css.map */

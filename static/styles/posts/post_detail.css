@@ -21,13 +21,6 @@
     border-radius: 4px; }
   .post .description {
     font-size: 18px; }
-    .post .description span {
-      margin-left: 10px;
-      color: #e0b1cb;
-      cursor: pointer; }
-      .post .description span:hover {
-        color: #f3e0ea;
-        font-weight: 600; }
 
 .modal {
   height: 160px;
