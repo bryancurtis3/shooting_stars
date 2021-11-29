@@ -10,12 +10,14 @@ body {
     padding: 0;
     min-height: 100vh;
     font-family: 'Montserrat', sans-serif;
+    background-color: $dark;
 }
 
 main {
     min-height: inherit;
+    max-width: 1000px;
+    margin: 0 auto;
     padding: 40px 20px;
-    background-color: $dark;
     color: $text;
 }
 
@@ -30,12 +32,22 @@ nav {
     .logo {
         font-size: 24px;
         font-weight: 600;
+        transition: .1s ease-in-out;
+
+        &:hover {
+            color: scale-color($dark, $lightness: +25%);
+        }
     }
 
     a {
         font-weight: 500;
         color: $dark;
         text-decoration: none;
+        transition: .1s ease-in-out;
+
+        &:hover {
+            color: scale-color($dark, $lightness: +25%);
+        }
     }
 
     section {

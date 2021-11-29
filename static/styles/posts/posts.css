@@ -50,7 +50,10 @@ main {
       font-size: 36px;
       font-weight: 600;
       color: #f3e0ea;
-      text-decoration: none; }
+      text-decoration: none;
+      transition: .1s ease-in-out; }
+      .posts .post .title:hover {
+        color: #f9f0f5; }
     .posts .post .subtitle {
       display: flex;
       justify-content: space-between; }
@@ -59,7 +62,8 @@ main {
         align-self: center;
         margin-top: 0;
         margin: 0;
-        font-size: 18px; }
+        font-size: 18px;
+        font-weight: 500; }
       .posts .post .subtitle .coords {
         font-size: 15px; }
     .posts .post img {

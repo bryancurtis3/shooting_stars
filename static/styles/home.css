@@ -1,7 +1,13 @@
 h1 {
-  font-size: 46px;
+  font-size: 42px;
   color: #f3e0ea;
-  text-align: center; }
+  text-align: center;
+  margin-top: 0; }
+
+#city-header {
+  text-align: center;
+  font-size: 46px;
+  margin: 20px 0 30px 0; }
 
 .search {
   display: flex;
@@ -34,9 +40,11 @@ h1 {
 
 .info {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 40px; }
   .info .box {
+    position: relative;
+    width: 100%;
     background-color: #5e548e;
     padding: 0 20px;
     border-radius: 6px;
@@ -46,9 +54,24 @@ h1 {
       font-size: 28px;
       font-weight: bold;
       border-bottom: 1px solid #9f86c0; }
-
-@media only screen and (min-width: 450px) {
-  .info {
-    grid-template-columns: 1fr 1fr; } }
+    .info .box .chart-container {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      bottom: 0; }
+      .info .box .chart-container canvas {
+        padding: 18px; }
+      .info .box .chart-container #windChart, .info .box .chart-container #cloudChart {
+        height: 100% !important;
+        width: 100% !important; }
+  .info .hourly {
+    height: 500px; }
+  @media only screen and (max-width: 800px) {
+    .info .hourly {
+      grid-column: span 2; } }
+@media only screen and (max-width: 576px) {
+  .box {
+    grid-column: span 2; } }
 
 /*# sourceMappingURL=home.css.map */

@@ -1,9 +1,16 @@
 @import './variables';
 
 h1 {
-    font-size: 46px;
+    font-size: 42px;
     color: $text;
     text-align: center;
+    margin-top: 0;
+}
+
+#city-header {
+    text-align: center;
+    font-size: 46px;
+    margin: 20px 0 30px 0;
 }
 
 .search {
@@ -46,11 +53,13 @@ h1 {
 
 .info {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 40px;
 
 
     .box {
+        position: relative;
+        width: 100%;
         background-color: $meddark;
         padding: 0 20px;
         border-radius: 6px;
@@ -64,13 +73,43 @@ h1 {
             font-weight: bold;
             border-bottom: 1px solid $med;
         }
+
+        .chart-container {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            canvas {
+                padding: 18px;
+            }
+
+            #windChart, #cloudChart {
+                height: 100%!important;
+                width: 100%!important;
+            }
+        }
     }
 
+    .hourly {
+        height: 500px;
+    }
 
+    // Why does this brake the others?
+    @media only screen and (max-width: 800px) {
+        .hourly {
+            grid-column: span 2;
+        }
+    }
 }
 
-@media only screen and (min-width: 450px) {
+@media only screen and (max-width: 576px) {
     .info {
-        grid-template-columns: 1fr 1fr;
+        // grid-template-columns: 1fr 1fr;
+    }
+
+    .box {
+        grid-column: span 2;
     }
 }

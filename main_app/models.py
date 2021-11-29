@@ -8,6 +8,8 @@ from django.db.models.fields import CharField, TextField, IntegerField
 from django.db.models.fields.related import ForeignKey
 
 # Create your models here.
+
+# Post Model
 class Post(Model):
     title = CharField(max_length=100)
     image = CharField(max_length=500)

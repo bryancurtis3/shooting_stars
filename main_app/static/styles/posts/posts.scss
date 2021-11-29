@@ -69,6 +69,11 @@ main {
             font-weight: 600;
             color: $text;
             text-decoration: none;
+            transition: .1s ease-in-out;
+
+            &:hover {
+                color: scale-color($text, $lightness: +50%);
+            }
         }
     
         .subtitle {
@@ -81,7 +86,7 @@ main {
                 margin-top: 0;
                 margin: 0;
                 font-size: 18px;
-                // font-weight: 600;
+                font-weight: 500;
             }
     
             .coords {

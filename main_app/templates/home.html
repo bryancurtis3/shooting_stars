@@ -7,17 +7,23 @@
 {% endblock styles %}
 
 {% block scripts %}
-<script src="{% static 'scripts/weatherApi.js' %}"></script>
+<script src="{% static 'scripts/weatherApi.js' %}" defer></script>
 {% endblock scripts %}
 
 
 {% block content %}
 
-    <h1>Pick The Place</h1>
+    <h1>Find a City</h1>
 
-    <section class="search">
-        <input type="text" Placeholder="Location">
-    </section>
+    <form class="search" action="/" method="GET">
+        <input 
+        name="city"
+        type="search"
+        placeholder="Nearest City (ex. Phoenix)"
+        >
+    </form>
+
+    <h2 id="city-header"></h2>
 
     {% comment %} <section class="iframe">
         <iframe src="https://www.lightpollutionmap.info/#zoom=2.20&lat=39.7242&lon=-98.5634&layers=B0FFFFFFFTFFFFFFFFFF" title="description"></iframe>
@@ -42,11 +48,11 @@
             <p id="moonset"></p>
         </div>
 
-        <div class="box">
+        {% comment %} <div class="box">
             <h3>Lunar Phase</h3>
             <p id="phase"></p>
             <p id="illumination"></p>
-        </div>
+        </div> {% endcomment %}
 
         {% comment %} <div class="box">
             <h3>Milky Way</h3>
@@ -54,10 +60,21 @@
             <p id="illumination"></p>
         </div> {% endcomment %}
         
-        <div class="box">
+        <div class="box hourly">
             <h3>Hourly Clouds</h3>
-            <p id="hours"></p>
+            <div class="chart-container">
+                <canvas id="cloudChart"></canvas>
+            </div>
+            
         </div>
+
+        <div class="box hourly">
+            <h3>Hourly Wind</h3>
+            <div class="chart-container">
+                <canvas id="windChart"></canvas>
+                </div>
+        </div>
+
 
     </section>
 

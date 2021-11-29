@@ -5,6 +5,7 @@ from django.urls import reverse
 
 # from django.http import HttpResponse
 
+# Views imports
 from django.views import View
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
@@ -35,14 +36,44 @@ class IncludeAuthForms:
 class Home(TemplateView):
     template_name = "home.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["signup_form"] = UserCreationForm()
+        context["login_form"] = AuthenticationForm()
+
+        # Get, sanitize, and prepare user query
+        query = self.request.GET.get("q")
+        if query:
+            latitude = query.split(",")[0]
+            longitude = query.split(" ")[1]
+            context["posts"] = Post.objects.filter(
+                lat__istartswith = latitude,
+                long__istartswith = longitude
+            )
+        else:
+            context["posts"] = Post.objects.all()
+        
+        return context
+
+# === Post routes ===
 class Posts(TemplateView):
     model = Post
     template_name = "posts/posts.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["posts"] = Post.objects.all()
-        # context["query"] = self.kwargs['q']
+
+        # Get, sanitize, and prepare user query
+        query = self.request.GET.get("q")
+        if query:
+            latitude = query.split(",")[0]
+            longitude = query.split(" ")[1]
+            context["posts"] = Post.objects.filter(
+                lat__istartswith = latitude,
+                long__istartswith = longitude
+            )
+        else:
+            context["posts"] = Post.objects.all()
         form = PostCreateForm()
         context["form"] = form
         return context
@@ -57,35 +88,23 @@ class PostDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        form = PostUpdateForm()
+        form = PostUpdateForm(instance=Post.objects.get(pk=self.kwargs.get("pk")))
         context["form"] = form
         return context
 
 class PostCreate(View):
-
-    def post(self, request, pk):
-
-        # probably better if used on update... a little confused because my code doesnt have the same views as exploria with regards to modals and routes
-        form = PostUpdateForm(request.POST)
-        if form.is_valid():
-            Post.objects.filter(pk=pk).update(title=request.POST.get('title'), image=request.POST.get('image'), description=request.POST.get('description'), lat=request.POST.get('lat'), long=request.POST.get('long'))
-            return redirect("posts")
-        else:
-            # idk about this
-            context = {"form": form, "pk": pk}
-            return render(request, "posts/posts.html", context)
             
 
     # Modeled after PostUpdate exploria
-    # def post(self, request, pk):
-    #     title = request.POST.get("title")
-    #     image = request.POST.get("img")
-    #     description = request.POST.get('description')
-    #     lat = request.POST.get('lat')
-    #     long = request.POST.get('long')
+    def post(self, request):
+        title = request.POST.get("title")
+        image = request.POST.get("image")
+        description = request.POST.get('description')
+        lat = request.POST.get('lat')
+        long = request.POST.get('long')
 
-    #     Post.objects.create(title=title, img=image, description=description, lat=lat, long=long, user=request.user)
-    #     return redirect("post_detail", pk=pk)
+        new_post = Post.objects.create(title=title, image=image, description=description, lat=lat, long=long, user=request.user)
+        return redirect("post_detail", pk=new_post.pk)
         
 
 # class PostCreate(CreateView):
@@ -100,6 +119,20 @@ class PostCreate(View):
 #     def form_valid(self, form):
 #         form.instance.user = self.request.user
 #         return super(PostCreate, self).form_valid(form)
+
+class PostUpdate(View):
+
+    def post(self, request, pk):
+
+        # probably better if used on update... a little confused because my code doesnt have the same views as exploria with regards to modals and routes
+        form = PostUpdateForm(request.POST)
+        if form.is_valid():
+            Post.objects.filter(pk=pk).update(title=request.POST.get('title'), image=request.POST.get('image'), description=request.POST.get('description'), lat=request.POST.get('lat'), long=request.POST.get('long'))
+            return redirect("posts")
+        else:
+            # idk about this
+            context = {"form": form, "pk": pk}
+            return render(request, "posts/posts.html", context)
 
 class PostCreateForm(ModelForm):
     class Meta:
@@ -121,6 +154,7 @@ class PostUpdateForm(ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'image', 'description', 'lat', 'long']
+# === End Post Routes ===
     
 
 

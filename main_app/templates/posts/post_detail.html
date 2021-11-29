@@ -7,11 +7,12 @@
 {% endblock styles %}
 
 {% block scripts %}
-<script src="{% static 'scripts/posts.js'%}"></script>
+<script src="{% static 'scripts/posts.js'%}" defer></script>
 {% endblock scripts %}
 
 {% block content %}
 
+<!-- Post Display -->
 <article class="post">
     <h3 class="title">{{post.title}}</h3>
     <div class="subtitle">
@@ -22,11 +23,12 @@
     <p class="description">
         {{post.description}}
     </p>
+    
     <button onClick="modal()">Delete</button>
     <button onClick="edit()">Edit</button>
-    
 </article>
 
+<!-- Delete Modal -->
 <form class="modal" action="{% url 'post_delete' post.pk %}" method="POST">
        {% csrf_token %}
        <h2>Are you sure you want to delete this post?</h2>
@@ -34,11 +36,11 @@
        <button>Delete</button>
 </form>
 
-{% comment %} <form class="edit" action="{% url 'post_update' post.pk %}" method="PATCH">
+<form class="edit" action="{% url 'post_update' post.pk %}" method="POST">
     {% csrf_token %}
     {{form.as_p}}
-    <input type="button" value="Submit"></input>
-</form> {% endcomment %}
+    <input type="submit" value="Submit"></input>
+</form> 
 
 
 {% endblock content %}

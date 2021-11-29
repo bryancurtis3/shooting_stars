@@ -9,33 +9,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Fontawesome -->
-    {% comment %} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> {% endcomment %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- jQuery -->
-    {% comment %} <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> {% endcomment %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-    <!-- Styles -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <!-- Local Styles -->
     <link rel="stylesheet" href="{% sass_src 'styles/main.scss' %}">
-
     {% block styles %}{% endblock styles %}
 
-    <!-- Scripts -->
+    <!-- Local Scripts -->
     {% block scripts %}{% endblock scripts %}
 
     <title>Shooting Stars</title>
 </head>
 <body>
 
+    <!-- Navbar -->
     <nav>
         <a class="logo" href="/" title="Shooting Stars Home">Shooting Stars</a>
 
         <section class="nav-right">
-
             <div class="words">
                 <a>Placeholder</a>
                 <a href="/posts" title="All Posts">Posts</a>        
             </div>
-
 
             <div class="star">
                 <i class="far fa-star"></i>
@@ -43,6 +44,7 @@
         </section>
     </nav>
 
+    <!-- Content block for extension pages -->
     <main>
         {% block content %}{% endblock content %}
     </main>
