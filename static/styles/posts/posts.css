@@ -101,7 +101,7 @@ main {
   .modal p {
     display: grid;
     gap: 5px;
-    margin: 0; }
+    margin: 10px 0; }
     .modal p input, .modal p textarea {
       padding: 5px; }
     .modal p textarea {

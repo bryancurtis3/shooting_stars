@@ -8,7 +8,7 @@ h1 {
   text-align: center;
   font-size: 46px;
   margin: 0;
-  padding: 20px 0 30px 0;
+  padding: 30px 0;
   border-top: 1px solid #be95c4; }
 
 .search {
@@ -21,6 +21,7 @@ h1 {
     min-width: 325px;
     max-width: 600px;
     padding: 10px;
+    margin-bottom: 10px;
     font-size: 18px;
     color: #f3e0ea;
     background-color: #5e548e;
@@ -33,17 +34,19 @@ h1 {
   background-color: #231942;
   opacity: .7;
   z-index: 10;
-  height: 400px;
-  margin-bottom: 40px; }
+  height: 600px;
+  margin-bottom: 40px;
+  grid-column: span 2; }
   .iframe iframe {
     width: 100%;
     height: inherit;
-    border: 3px solid #5e548e; }
+    border: 5px solid #5e548e;
+    border-radius: 6px; }
 
 .info {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px; }
+  gap: 20px; }
   .info .box {
     position: relative;
     width: 100%;

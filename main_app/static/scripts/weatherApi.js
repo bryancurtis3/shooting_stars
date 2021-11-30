@@ -94,6 +94,9 @@ const getData = function getData(place) {
         // Generate charts
         cloudChart();
         windChart();
+
+        // Set iFrame
+        $("#iframe").attr('src', `https://www.lightpollutionmap.info/#zoom=12.00&lat=${json.location.lat}&lon=${json.location.lon}&layers=B0FFFFFFFTFFFFFFFFFF`)
     
         // Header
         json.location.country === "United States of America" ? area = json.location.region : area = json.location.country; // State if USA, else: country
@@ -121,14 +124,32 @@ const getData = function getData(place) {
 // console.log(percentage)
 // console.log(backgroundColor)
 
+
 const cloudChart = function cloudChart() {
     // This is vanilla for gradient compatibility
     const ctx = document.getElementById('cloudChart').getContext('2d');
     
     // Gradient
-    const gradient = ctx.createLinearGradient(0, 0, 600, 0);
+    const gradient = ctx.createLinearGradient(0, 0, 400, 0);
     gradient.addColorStop(0, '#cccccc44');
     gradient.addColorStop(1, '#444444e6');
+
+    // let width, height, gradient;
+    // function getGradient(ctx, chartArea) {
+    //     const chartWidth = chartArea.right - chartArea.left;
+    //     const chartHeight = chartArea.bottom - chartArea.top;
+    //     if (!gradient || width !== chartWidth || height !== chartHeight) {
+    //         // Create the gradient because this is either the first render
+    //         // or the size of the chart has changed
+    //         width = chartWidth;
+    //         height = chartHeight;
+    //         const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+    //         gradient.addColorStop(0, '#cccccc44');
+    //         gradient.addColorStop(1, '#444444e6');
+    //     }
+
+    //     return gradient;
+    // }
     
     const cloudChart = new Chart(ctx, {
         type: 'bar',
@@ -155,6 +176,11 @@ const cloudChart = function cloudChart() {
             responsive: true,
             maintainAspectRatio: false,
             indexAxis: "y",
+            plugins: {
+                legend: {
+                  position: 'top',
+                },
+              }
         },
     })
 }
@@ -223,7 +249,33 @@ if (params.place) {
 } else {
     navigator.geolocation.getCurrentPosition(function (position) {
         console.log(position.coords.latitude);
-        userLocation = "" + position.coords.latitude.toString() + "," + position.coords.longitude.toString();
+        const latitude = position.coords.latitude.toString();
+        const longitude = position.coords.longitude.toString()
+
+        userLocation = "" + latitude + "," + longitude;
+
         return getData(userLocation);
     }, error, options);
 } 
+
+function plotSine(ctx) {
+    var width = ctx.canvas.width;
+    var height = ctx.canvas.height;
+    var scale = 20;
+
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "rgb(66,44,255)";
+    
+    var x = 0;
+    var y = 0;
+    var amplitude = 40;
+    var frequency = 20;
+    //ctx.moveTo(x, y);
+    while (x < width) {
+        y = height/2 + amplitude * Math.sin(x/frequency);
+        ctx.lineTo(x, y);
+        x = x + 1;
+    }
+    ctx.stroke();
+}
