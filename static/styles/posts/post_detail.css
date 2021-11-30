@@ -39,9 +39,17 @@ main {
 
 .edit {
   display: none;
-  height: 610px;
-  margin-top: -305px; }
-  .edit input {
-    margin-bottom: 10px; }
+  height: max-content; }
+
+@media only screen and (max-width: 450px) {
+  .edit {
+    height: 100vh;
+    width: 100vw; }
+    .edit h3 {
+      margin-top: 10px; }
+    .edit .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px; } }
 
 /*# sourceMappingURL=post_detail.css.map */

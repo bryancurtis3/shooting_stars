@@ -1,7 +1,7 @@
 main {
   display: grid;
   align-content: center;
-  padding-top: 10px; }
+  padding-top: 20px; }
 
 .header {
   height: 68px;
@@ -17,7 +17,9 @@ main {
     font-weight: 600;
     margin: auto 0;
     width: 116px;
-    padding-left: 10px; }
+    padding-left: 10px;
+    color: #f3e0ea;
+    text-decoration: none; }
   @media only screen and (min-width: 600px) {
     .header a {
       font-size: 32px;
@@ -115,57 +117,21 @@ main {
   display: none;
   height: 100vh;
   width: 100vw;
-  background-color: rgba(35, 25, 66, 0.7);
+  background-color: rgba(94, 84, 142, 0.7);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   transition: .2s ease-in-out; }
 
-.modal {
-  height: max-content;
-  width: 350px;
-  min-width: 380px;
-  position: fixed;
-  top: 50vh;
-  left: 50vw;
-  margin-top: -300px;
-  margin-left: -190px;
-  display: grid;
-  display: none;
-  gap: 20px;
-  justify-self: center;
-  padding: 20px;
-  border-radius: 6px;
-  background-color: #9f86c0;
-  z-index: 11; }
-  .modal h3 {
-    text-align: center;
-    font-size: 32px;
-    margin: 0 0 10px 0; }
-  .modal p {
-    display: grid;
-    gap: 5px;
-    margin: 10px 0; }
-    .modal p input, .modal p textarea {
-      padding: 5px; }
-    .modal p textarea {
-      max-width: 100%; }
-  .modal .button {
-    background-color: #231942;
-    color: #f3e0ea; }
-    .modal .button:hover {
-      background-color: #3b2a70;
-      transform: scale(1.05); }
-    .modal .button:active {
-      box-shadow: 0 3px 0 #5e548e;
-      margin-top: 3px;
-      margin-bottom: -3px; }
-  .modal button {
-    background-color: #be95c4;
-    opacity: .7;
-    margin-right: 10px; }
-    .modal button:hover {
-      opacity: 1;
-      transform: scale(1.05); }
+@media only screen and (max-width: 450px) {
+  .modal {
+    height: 100vh;
+    width: 100vw; }
+    .modal h3 {
+      margin-top: 10px; }
+    .modal .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px; } }
 
 .message {
   padding: 0 20px;

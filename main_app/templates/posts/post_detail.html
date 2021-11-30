@@ -29,6 +29,7 @@
 </article>
 
 <!-- Delete Modal -->
+<div class="overlay" onClick="edit()"></div>
 <form class="modal" action="{% url 'post_delete' post.pk %}" method="POST">
        {% csrf_token %}
        <h2>Are you sure you want to delete this post?</h2>
@@ -37,9 +38,13 @@
 </form>
 
 <form class="edit" action="{% url 'post_update' post.pk %}" method="POST">
+    <h3>Edit Your Post</h3>
     {% csrf_token %}
     {{form.as_p}}
-    <input type="submit" value="Submit"></input>
+    <div class="buttons">
+        <button onClick="edit()">Cancel</button>
+        <input class="button" type="submit" value="Submit"></input>
+    </div>
 </form> 
 
 

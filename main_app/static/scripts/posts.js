@@ -19,6 +19,7 @@ const modal = function modal() {
 
 const edit = function edit() {
     $(".edit").toggle();
+    $(".overlay").toggle();
 }
 
 const message = function message() {

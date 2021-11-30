@@ -3,7 +3,7 @@
 main {
     display: grid;
     align-content: center;
-    padding-top: 10px;
+    padding-top: 20px;
 }
 
 .header {
@@ -22,6 +22,8 @@ main {
         margin: auto 0;
         width: 116px;
         padding-left: 10px;
+        color: $text;
+        text-decoration: none;
     }
     @media only screen and (min-width: 600px) {
         a {
@@ -161,80 +163,27 @@ main {
     display: none;
     height: 100vh;
     width: 100vw;
-    background-color: rgba(35, 25, 66, .7);
+    background-color: rgba(94, 84, 142, .7);
     -webkit-backdrop-filter: blur(6px);
     backdrop-filter: blur(6px);
     // transform: scale(0);
     transition: .2s ease-in-out;
 }
 
+// Custom modal breakpoint styling
+@media only screen and (max-width: 450px) {
+    .modal {
+        height: 100vh;
+        width: 100vw;
 
-.modal {
-    height: max-content;
-    width: 350px;
-    min-width: 380px;
-    position: fixed;
-    top: 50vh;
-    left: 50vw;
-    margin-top: -300px;
-    margin-left: -190px;
-    
-    display: grid;
-    display: none;
-    gap: 20px;
-    justify-self: center;
-
-    padding: 20px;
-    border-radius: 6px;
-    background-color: $med;
-    z-index: 11;
-
-
-    h3 {
-        text-align: center;
-        font-size: 32px;
-        margin: 0 0 10px 0;
-    }
-
-    p {
-        display: grid;
-        gap: 5px;
-        margin: 10px 0;
-
-        input, textarea {
-            padding: 5px;
+        h3 {
+            margin-top: 10px;
         }
 
-        textarea {
-            max-width: 100%;
-        }
-    }
-
-    .button {
-        background-color: $dark;
-        color: $text;
-
-
-        &:hover {
-            background-color: scale-color($dark, $lightness: +15%);
-            transform: scale(1.05);
-        }
-
-        &:active {
-            box-shadow: 0 3px 0 $meddark;
-            margin-top: 3px;
-            margin-bottom: -3px;
-        }
-    }
-
-    button {
-        background-color: $medlight;
-        opacity: .7;
-        margin-right: 10px;
-
-        &:hover {
-            opacity: 1;
-            transform: scale(1.05);
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
         }
     }
 }

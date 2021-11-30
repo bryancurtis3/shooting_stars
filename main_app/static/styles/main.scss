@@ -126,16 +126,29 @@ button, .button {
     }
 }
 
-
-.modal, .edit {
-    height: 200px;
-    width: 50%;
-    min-width: 375px;
+// Overlay to go with modals
+.overlay {
     position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(94, 84, 142, .7);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    // transform: scale(0);
+    transition: .2s ease-in-out;
+}
+
+// Modals
+.modal, .edit {
+    height: max-content;
+    position: fixed;
+    min-width: 450px;
     top: 50vh;
     left: 50vw;
-    margin-top: -100px;
-    margin-left: -25%;
+    transform: translate(-50%, -50%);
     
     display: grid;
     display: none;
@@ -144,20 +157,69 @@ button, .button {
 
     padding: 20px;
     border-radius: 6px;
-    background-color: $med;
+    background-color: $dark;
     z-index: 11;
+
+
+    h3 {
+        text-align: center;
+        font-size: 32px;
+        margin: 0 0 10px 0;
+    }
 
     p {
         display: grid;
         gap: 5px;
-        margin: 0;
+        margin: 10px 0;
 
         input, textarea {
-            padding: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
         }
 
         textarea {
+            height: 180px;
             max-width: 100%;
         }
+
+        label {
+            font-size: 18px;
+        }
+    }
+
+    .buttons {
+        margin-top: 20px;
+
+        .button {
+            background-color: $meddark;
+            color: $text;
+    
+            &:hover {
+                background-color: scale-color($meddark, $lightness: +15%);
+                transform: scale(1.05);
+            }
+    
+            &:active {
+                box-shadow: 0 3px 0 $meddark;
+                margin-top: 3px;
+                margin-bottom: -3px;
+            }
+        }
+    
+        button {
+            background-color: $medlight;
+            opacity: .7;
+            margin-right: 10px;
+    
+            &:hover {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+        }
+    }
+}
+@media only screen and (max-width: 450px) {
+    .modal {
+        min-width: 100vw;
     }
 }
