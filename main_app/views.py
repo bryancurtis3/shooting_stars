@@ -124,7 +124,6 @@ class PostUpdate(View):
 
     def post(self, request, pk):
 
-        # probably better if used on update... a little confused because my code doesnt have the same views as exploria with regards to modals and routes
         form = PostUpdateForm(request.POST)
         if form.is_valid():
             Post.objects.filter(pk=pk).update(title=request.POST.get('title'), image=request.POST.get('image'), description=request.POST.get('description'), lat=request.POST.get('lat'), long=request.POST.get('long'))

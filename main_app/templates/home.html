@@ -13,17 +13,17 @@
 
 {% block content %}
 
-    <h1>Find a City</h1>
+    <h1>Search a Spot</h1>
 
     <form class="search" action="/" method="GET">
         <input 
-        name="city"
+        name="place"
         type="search"
-        placeholder="Nearest City (ex. Phoenix)"
+        placeholder="Decimal coordinates, zip, or city"
         >
     </form>
 
-    <h2 id="city-header"></h2>
+    <h2 id="place-header">Loading...</h2>
 
     {% comment %} <section class="iframe">
         <iframe src="https://www.lightpollutionmap.info/#zoom=2.20&lat=39.7242&lon=-98.5634&layers=B0FFFFFFFTFFFFFFFFFF" title="description"></iframe>
