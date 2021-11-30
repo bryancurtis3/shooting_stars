@@ -96,7 +96,8 @@ const getData = function getData(place) {
         windChart();
 
         // Set iFrame
-        $("#iframe").attr('src', `https://www.lightpollutionmap.info/#zoom=12.00&lat=${json.location.lat}&lon=${json.location.lon}&layers=B0FFFFFFFTFFFFFFFFFF`)
+        console.log(`https://www.lightpollutionmap.info/#zoom=12.00&lat=${json.location.lat}&lon=${json.location.lon}&layers=B0FFFFFFFTFFFFFFFFFF`)
+        $("#iframe").attr('src', `https://www.lightpollutionmap.info/#zoom=12.00&lat=${json.location.lat}&lon=${json.location.lon}&layers=B0FFFFFFFTFFFFFFFFFF`);
     
         // Header
         json.location.country === "United States of America" ? area = json.location.region : area = json.location.country; // State if USA, else: country
@@ -159,7 +160,7 @@ const cloudChart = function cloudChart() {
                 label: '% cloud coverage',
                 data: percentage,
                 backgroundColor: gradient,
-                hoverBorderColor: '#9f86c0',
+                hoverBorderColor: '#f3e0ea',
                 hoverBorderWidth: 2,
             },
         ]
@@ -180,6 +181,11 @@ const cloudChart = function cloudChart() {
                 legend: {
                   position: 'top',
                 },
+                // tooltip: {
+                //     callbacks: {
+                //       footer: footer,
+                //     }
+                //   }
               }
         },
     })

@@ -1,9 +1,16 @@
 @import '../variables';
 
+main {
+    display: grid;
+}
+
 .post {
     padding: 20px;
     background-color: $meddark;
     border-radius: 6px;
+    width: 100%;
+    max-width: 800px;
+    justify-self: center;
 
     .title {
         font-size: 42px;

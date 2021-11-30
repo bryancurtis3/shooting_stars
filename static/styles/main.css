@@ -59,10 +59,13 @@ input, textarea {
   font-size: 18px;
   color: #f3e0ea;
   background-color: #5e548e;
-  border-color: #be95c4;
+  border: none;
+  border-bottom: 3px solid #be95c4;
   border-radius: 6px; }
   input::placeholder, textarea::placeholder {
     color: #9f86c0; }
+  input:focus-visible, textarea:focus-visible {
+    outline-color: #e0b1cb; }
 
 button, .button {
   display: inline-block;

@@ -1,7 +1,13 @@
+main {
+  display: grid; }
+
 .post {
   padding: 20px;
   background-color: #5e548e;
-  border-radius: 6px; }
+  border-radius: 6px;
+  width: 100%;
+  max-width: 800px;
+  justify-self: center; }
   .post .title {
     font-size: 42px;
     margin: 0 0 12px 0;

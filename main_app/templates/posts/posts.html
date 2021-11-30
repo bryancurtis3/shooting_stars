@@ -16,9 +16,7 @@
 
 <section class="header">
 
-    <h1>All Posts</h1>
-
-    <i class="far fa-plus-square" onClick="modal()" title="New Post"></i>
+    <a>All Posts</a>
 
     <form class="search" action="/posts" method="GET">
         <input 
@@ -26,15 +24,22 @@
         {% comment %} class="search" {% endcomment %}
         type="search" 
         placeholder="Search by coordinates"
+        title="e.g: -54.321, 12.345"
         >
     </form>
 
 </section>
 
+<section class="new-post" onClick="modal()" title="New Post">
+    <i class="fas fa-plus" ></i>
+</section>
 
 <!-- Posts container -->
 <section class="posts">
-{% for post in posts  %}
+
+
+
+    {% for post in posts  %}
 
     <!-- Post display -->
     <article class="post">
@@ -60,14 +65,17 @@
     </article>
 
 
-{% endfor %}
+    {% endfor %}
 </section>
 
 <!-- New Post Modal -->
+<div class="overlay" onClick="modal()"></div>
 <form class="modal" action="{% url 'post_create' %}" method="POST">
+    <h3>Create A Post</h3>
     {% csrf_token %}
     {{form.as_p}}
-    <input type="submit" value="Submit"></input>
+    <button onClick="modal()">Cancel</button>
+    <input class="button" type="submit" value="Submit"></input>
 </form>
 
 

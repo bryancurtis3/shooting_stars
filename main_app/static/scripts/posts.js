@@ -5,6 +5,16 @@ const more = function more(event) {
 
 const modal = function modal() {
     $(".modal").toggle();
+    $(".overlay").toggle();
+
+
+    // console.log($(".modal").css("top"))
+    // console.log($(".overlay").css("transform"))
+    // if ($(".overlay").css("transform") === "matrix(0, 0, 0, 0, 0, 0)") {
+    //     $(".overlay").css("transform", "scale(1)");
+    // } else {
+    //     $(".overlay").css("transform", "scale(0)");
+    // }
 }
 
 const edit = function edit() {

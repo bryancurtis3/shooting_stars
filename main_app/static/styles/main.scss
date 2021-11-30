@@ -88,11 +88,16 @@ input, textarea {
     font-size: 18px;
     color: $text;
     background-color: $meddark;
-    border-color: $medlight;
+    border: none;
+    border-bottom: 3px solid $medlight;
     border-radius: 6px;
 
     &::placeholder {
         color: $med;
+    }
+
+    &:focus-visible {
+        outline-color: $light;
     }
 }
 

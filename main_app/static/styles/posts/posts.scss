@@ -8,23 +8,25 @@ main {
 
 .header {
     height: 68px;
+    width: 100%;
+    max-width: 800px;
+    justify-self: center;
     display: flex;
     gap: 40px;
     justify-content: center;
-    margin-bottom: 10px;
 
-    h1 {
+    a {
         text-align: center;
+        font-size: 24px;
+        font-weight: 600;
+        margin: auto 0;
+        width: 116px;
+        padding-left: 10px;
     }
-
-    .fa-plus-square {
-        font-size: 32px;
-        place-self: center;
-        transition: .1s ease-in-out;
-        cursor: pointer;
-
-        &:hover {
-            transform: scale(1.1);
+    @media only screen and (min-width: 600px) {
+        a {
+            font-size: 32px;
+            width: 170px;
         }
     }
 
@@ -32,12 +34,13 @@ main {
         display: flex;
         justify-content: center;
         align-items: center;
+        width: calc(100% - 156px);
     
         input {
-            height: 40px;
-            width: 50vw;
-            min-width: 150px;
-            max-width: 600px;
+            height: 50px;
+            width: 100%;
+            min-width: 100px;
+            // max-width: 500px;
             padding: 10px;
             font-size: 18px;
             color: $text;
@@ -49,6 +52,37 @@ main {
                 color: $med;
             }
         }
+
+    }
+}
+
+.new-post {
+    height: 50px;
+    width: 100%;
+    max-width: 800px;
+    justify-self: center;
+    padding: 20px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    background-color: $meddark;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: .1s ease-in-out;
+
+    &:hover {
+        transform: scaley(1.1);
+
+        .fa-plus {
+            transform: scalex(1.1);
+        }
+    }
+
+    .fa-plus {
+        font-size: 32px;
+        place-self: center;
+        transition: .1s ease-in-out;
+        cursor: pointer;
     }
 }
 
@@ -120,15 +154,30 @@ main {
     }
 }
 
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(35, 25, 66, .7);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    // transform: scale(0);
+    transition: .2s ease-in-out;
+}
+
+
 .modal {
-    height: 600px;
-    width: 50%;
-    min-width: 375px;
+    height: max-content;
+    width: 350px;
+    min-width: 380px;
     position: fixed;
     top: 50vh;
     left: 50vw;
     margin-top: -300px;
-    margin-left: -25%;
+    margin-left: -190px;
     
     display: grid;
     display: none;
@@ -139,6 +188,13 @@ main {
     border-radius: 6px;
     background-color: $med;
     z-index: 11;
+
+
+    h3 {
+        text-align: center;
+        font-size: 32px;
+        margin: 0 0 10px 0;
+    }
 
     p {
         display: grid;
@@ -151,6 +207,34 @@ main {
 
         textarea {
             max-width: 100%;
+        }
+    }
+
+    .button {
+        background-color: $dark;
+        color: $text;
+
+
+        &:hover {
+            background-color: scale-color($dark, $lightness: +15%);
+            transform: scale(1.05);
+        }
+
+        &:active {
+            box-shadow: 0 3px 0 $meddark;
+            margin-top: 3px;
+            margin-bottom: -3px;
+        }
+    }
+
+    button {
+        background-color: $medlight;
+        opacity: .7;
+        margin-right: 10px;
+
+        &:hover {
+            opacity: 1;
+            transform: scale(1.05);
         }
     }
 }
