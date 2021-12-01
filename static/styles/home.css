@@ -47,6 +47,8 @@ h1 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px; }
+  .info .timedate:hover {
+    outline: 1px solid #e0b1cb; }
   .info .box {
     position: relative;
     width: 100%;
@@ -55,9 +57,37 @@ h1 {
     border-radius: 6px;
     color: #f3e0ea;
     font-size: 18px; }
+    .info .box .rise-set {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-column: span 3;
+      border-bottom: 1px solid #9f86c0;
+      gap: 16px; }
+      .info .box .rise-set .rise, .info .box .rise-set .set {
+        margin-top: 38px; }
+    .info .box .box-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 16px;
+      padding-bottom: 20px; }
+      .info .box .box-inner .object {
+        display: flex;
+        align-items: center;
+        gap: 10px; }
+        .info .box .box-inner .object .fas {
+          font-size: 24px; }
+      .info .box .box-inner p {
+        display: contents; }
+      .info .box .box-inner span {
+        font-size: 12px; }
+      .info .box .box-inner #lum {
+        margin-left: -5px;
+        letter-spacing: 1px;
+        color: rgba(174, 164, 177, 0.822); }
     .info .box h3 {
       font-size: 28px;
       font-weight: bold;
+      margin-bottom: 0;
       border-bottom: 1px solid #9f86c0; }
     .info .box .chart-container {
       position: absolute;

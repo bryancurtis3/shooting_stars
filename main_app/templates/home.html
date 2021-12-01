@@ -7,8 +7,9 @@
 {% endblock styles %}
 
 {% block scripts %}
-<script src="{% static 'scripts/weatherApi.js' %}" defer></script>
-<script src="{% static 'scripts/posts.js' %}" defer"></script>
+<!-- Not defering this seems faster? -->
+<script src="{% static 'scripts/weatherApi.js' %}"></script>
+<script src="{% static 'scripts/posts.js' %}" defer></script>
 {% endblock scripts %}
 
 
@@ -37,16 +38,47 @@
     
     <section class="info">
 
-        <div class="box">
-            <h3>Sun Position</h3>
-            <p id="sunrise"></p>
-            <p id="sunset"></p>
-        </div>
+        <a class="box timedate" href="https://www.timeanddate.com/astronomy/@" target="_blank" title="timeanddate.com, advanced position info">
+            
+            <div class="box-inner">
+                <!-- Setting Rise and Set at the top-->
+                <div class="rise-set">
+                    <h3 style="border: none">Position: </h3>
+                    <div class="rise">
+                        Rise
+                        <i class="fas fa-long-arrow-alt-up"></i>
+                    </div>
+                    <div class="set">
+                        Set
+                        <i class="fas fa-long-arrow-alt-down"></i>
+
+                    </div>
+                </div>
+
+                <!-- Individual Stellar Objects -->
+                <div class="object">
+                    <i class="fas fa-sun"></i>
+                    <p>Sun</p>
+                </div>
+                <div class="m"><p id="sunrise"></p><span id="sunriseM"></span></div>
+                <div class="m"><p id="sunset"></p><span id="sunsetM"></span></div>
+
+
+                <div class="object">
+                    <i class="fas fa-moon"></i>
+                    <p>Moon</p>
+                    <span id="lum"></span>
+                </div>
+                <div class="m"><p id="moonrise"></p><span id="moonriseM"></span></div>
+                <div class="m"><p id="moonset"></p><span id="moonsetM"></span></div>
+            </div>
+
+        </a>
 
         <div class="box">
-            <h3>Moon Position</h3>
-            <p id="moonrise"></p>
-            <p id="moonset"></p>
+            <h3>Other Factors</h3>
+            <p id="humidity"></p>
+            <p id="temp"></p>
         </div>
 
         {% comment %} <div class="box">
@@ -80,12 +112,22 @@
             <iframe id="iframe" src=""></iframe>
         </section> 
 
-            <form class="modal" action="{% url 'signup' %}" method="POST">
+    <form class="modal" action="{% url 'signup' %}" method="POST">
         <h3>Create A User</h3>
         {% csrf_token %}
         {{signup_form.as_p}}
         <div class="buttons">
             <button onClick="modal()">Cancel</button>
+            <input class="button" type="submit" value="Submit"></input>
+        </div>
+    </form>
+
+    <form class="login" action="" method="POST">
+        <h3>Login</h3>
+        {% csrf_token %}
+        {{login_form.as_p}}
+        <div class="buttons">
+            <button onClick="login()">Cancel</button>
             <input class="button" type="submit" value="Submit"></input>
         </div>
     </form>

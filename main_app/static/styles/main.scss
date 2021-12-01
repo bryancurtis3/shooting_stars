@@ -42,7 +42,6 @@ nav {
     a {
         font-weight: 500;
         color: $dark;
-        text-decoration: none;
         transition: .1s ease-in-out;
         cursor: pointer;
 
@@ -81,6 +80,11 @@ nav {
             }
         }
     }
+}
+
+a {
+    text-decoration: none;
+    color: $text;
 }
 
 // Generalized text input styling
@@ -143,7 +147,7 @@ button, .button {
 }
 
 // Modals
-.modal, .edit {
+.modal, .edit, .login {
     height: max-content;
     position: fixed;
     min-width: 450px;

@@ -25,6 +25,10 @@ const getData = function getData(place) {
         // Destructure variables from JSON
         const { sunrise, sunset, moonrise, moonset, moon_phase, moon_illumination} = today.astro;
         const { sunrise: nextSunrise } = nextDay.astro;
+
+        const { humidity, temp_f } = nextDay.hour[0];
+
+        const { lat, lon } = json.location;
     
         const rise = parseInt(nextSunrise[0] + nextSunrise[1]);
         const set = parseInt(sunset[0] + sunset[1]) + 12;
@@ -103,12 +107,42 @@ const getData = function getData(place) {
         json.location.country === "United States of America" ? area = json.location.region : area = json.location.country; // State if USA, else: country
         $("#place-header").text(`${json.location.name}, ${area}`);
     
-    
+        // Remove leading 0 in times
+        const noZero = function noZero(time) {
+            if (time[0] === "0") time = time.substring(1);
+            return time;
+        }
+
+        // Rise and set times with their cooresponding AM/PM
+        const sunriseTime = noZero(sunrise.split(" ")[0]);
+        const sunriseM = sunrise.split(" ")[1];
+
+        const sunsetTime = noZero(sunset.split(" ")[0]);
+        const sunsetM = sunset.split(" ")[1];
+
+        const moonriseTime = noZero(moonrise.split(" ")[0]);
+        const moonriseM = moonrise.split(" ")[1]
+
+        const moonsetTime = noZero(moonset.split(" ")[0]);
+        const moonsetM = moonset.split(" ")[1];
+
         // Input data into HTML
-        $("#sunrise").text("Sunrise: " + sunrise);
-        $("#sunset").text("Sunset: " + sunset);
-        $("#moonrise").text("Moonrise: " + moonrise);
-        $("#moonset").text("Moonset: " + moonset);
+        $("#sunrise").text(sunriseTime);
+        $("#sunriseM").text(sunriseM);
+        $("#sunset").text(sunsetTime);
+        $("#sunsetM").text(sunsetM);
+
+        $("#lum").text(`(${moon_illumination}%)`)
+        $("#moonrise").text(moonriseTime);
+        $("#moonriseM").text(moonriseM);
+        $("#moonset").text(moonsetTime);
+        $("#moonsetM").text(moonsetM);
+
+        $("#humidity").text("Humidity: "+ humidity + "%");
+        $("#temp").text("Temperature: " + temp_f + "° F");
+
+        $(".timedate").attr("href", `https://www.timeanddate.com/astronomy/@${lat},${lon}`);
+
         $("#phase").text("Moon Phase: " + moon_phase);
         $("#illumination").text("Illumination: " + moon_illumination + "%");
         // $("#hours").text("Moonset: " + moonset);
@@ -194,6 +228,16 @@ const cloudChart = function cloudChart() {
 const windChart = function windChart() {
     // This is vanilla for gradient compatibility
     const ctx = document.getElementById('windChart').getContext('2d');
+
+    // Footer attempt
+    const footer = (tooltipItems) => {
+    
+        tooltipItems.forEach(function(tooltipItem) {
+            sum += tooltipItem.parsed.y;
+            console.log("hello?")
+        });
+        return 'Sum: ';
+    };
     
     // Gradient
     const gradient = ctx.createLinearGradient(0, 0, 400, 0);
@@ -226,12 +270,17 @@ const windChart = function windChart() {
             responsive: true,
             maintainAspectRatio: false,
         },
-        
-
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    footer: footer,
+                }
+            }
+        },
     })
 }
 
-// Business Handled Bellow
+// === Business Handled Bellow ===
 
 // let userLocation = "";
 const options = {
@@ -263,6 +312,10 @@ if (params.place) {
         return getData(userLocation);
     }, error, options);
 } 
+
+
+
+
 
 function plotSine(ctx) {
     var width = ctx.canvas.width;

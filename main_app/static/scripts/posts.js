@@ -17,6 +17,11 @@ const modal = function modal() {
     // }
 }
 
+const login = function login() {
+    console.log("logging in")
+    $(".login").toggle();
+}
+
 const edit = function edit() {
     $(".edit").toggle();
     $(".overlay").toggle();
