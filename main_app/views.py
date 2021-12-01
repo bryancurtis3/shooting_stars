@@ -148,7 +148,7 @@ class PostCreateForm(ModelForm):
         fields = ['title', 'image', 'description', 'lat', 'long', 'image_time']
         widgets = {
             'title': TextInput(attrs={'class': 'myfieldclass'}),
-            'image_time': TextInput(attrs={'type': 'date'})
+            'image_time': TextInput(attrs={'type': 'date'}),
             
         }
     

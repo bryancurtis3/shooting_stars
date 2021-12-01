@@ -2,6 +2,7 @@
 
 main {
     display: grid;
+    // This needs to be reset on this page for some reason
     min-height: 0;
 }
 
@@ -13,10 +14,30 @@ main {
     border-radius: 6px;
     justify-self: center;
 
-    .title {
-        font-size: 42px;
-        margin: 0 0 12px 0;
-        padding: 0 5px; // padding?
+    .main-title {
+        display: flex;
+        gap: 20px;
+        justify-content: space-between;
+
+        .title {
+            font-size: 42px;
+            margin: 0 0 12px 0;
+            padding: 0 5px; // padding?
+        }
+
+        a {
+            height: 42px;
+        }
+
+        .fas {
+            font-size: 42px;
+            color: $text;
+            transition: .1s ease-in-out;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
     }
 
     .subtitle {
@@ -35,6 +56,16 @@ main {
 
         .coords {
             font-size: 15px;
+            margin: 15px 0;
+            text-decoration: none;
+            color: $text;
+            cursor: pointer;
+            transition: .1s ease-in-out;
+
+            &:hover {
+                // transform: scale(1.05);
+                font-weight: 600;
+            }
         }
     }
 
@@ -45,6 +76,7 @@ main {
 
     .description {
         font-size: 18px;
+        padding: 0 5px; 
     }
 }
 

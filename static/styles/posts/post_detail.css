@@ -9,10 +9,22 @@ main {
   background-color: #5e548e;
   border-radius: 6px;
   justify-self: center; }
-  .post .title {
-    font-size: 42px;
-    margin: 0 0 12px 0;
-    padding: 0 5px; }
+  .post .main-title {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between; }
+    .post .main-title .title {
+      font-size: 42px;
+      margin: 0 0 12px 0;
+      padding: 0 5px; }
+    .post .main-title a {
+      height: 42px; }
+    .post .main-title .fas {
+      font-size: 42px;
+      color: #f3e0ea;
+      transition: .1s ease-in-out; }
+      .post .main-title .fas:hover {
+        transform: scale(1.05); }
   .post .subtitle {
     display: flex;
     justify-content: space-between;
@@ -25,12 +37,20 @@ main {
       font-size: 18px;
       font-weight: 500; }
     .post .subtitle .coords {
-      font-size: 15px; }
+      font-size: 15px;
+      margin: 15px 0;
+      text-decoration: none;
+      color: #f3e0ea;
+      cursor: pointer;
+      transition: .1s ease-in-out; }
+      .post .subtitle .coords:hover {
+        font-weight: 600; }
   .post img {
     width: 100%;
     border-radius: 4px; }
   .post .description {
-    font-size: 18px; }
+    font-size: 18px;
+    padding: 0 5px; }
 
 .modal {
   height: 160px;
