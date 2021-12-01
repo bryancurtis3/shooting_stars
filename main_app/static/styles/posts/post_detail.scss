@@ -2,14 +2,15 @@
 
 main {
     display: grid;
+    min-height: 0;
 }
 
 .post {
+    width: 100%;
+    max-width: 800px;
     padding: 20px;
     background-color: $meddark;
     border-radius: 6px;
-    width: 100%;
-    max-width: 800px;
     justify-self: center;
 
     .title {

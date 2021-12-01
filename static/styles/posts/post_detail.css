@@ -1,12 +1,13 @@
 main {
-  display: grid; }
+  display: grid;
+  min-height: 0; }
 
 .post {
+  width: 100%;
+  max-width: 800px;
   padding: 20px;
   background-color: #5e548e;
   border-radius: 6px;
-  width: 100%;
-  max-width: 800px;
   justify-self: center; }
   .post .title {
     font-size: 42px;

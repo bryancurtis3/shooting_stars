@@ -137,3 +137,5 @@ SASS_PROCESSOR_ROOT = STATIC_ROOT
 STATIC_URL = '/static/'
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
+AUTH_USER_MODEL = 'main_app.User'

@@ -1,4 +1,5 @@
 from django.db.models import fields
+from django.forms.widgets import Input
 from django.shortcuts import render, redirect
 
 from django.urls import reverse
@@ -20,17 +21,22 @@ from django.contrib import messages
 from django.forms import ModelForm, TextInput
 
 
-from main_app.models import Post
+from main_app.models import Post, User
 
 # Create your views here.
 
 class IncludeAuthForms:
-  def get_context_data(self, **kwargs):
-    context = super().get_context_data(**kwargs)
-    context["signup_form"] = UserCreationForm()
-    context["login_form"] = AuthenticationForm()
-    return context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["signup_form"] = UserCreationForm()
+        context["login_form"] = AuthenticationForm()
+        return context
 
+# class CustomUserCreationForm(UserCreationForm):
+
+#     class Meta(UserCreationForm.Meta):
+#         model = User
+#         fields = UserCreationForm.Meta.fields + ('custom_field',)
 
 
 class Home(TemplateView):
@@ -93,17 +99,20 @@ class PostDetail(DetailView):
         return context
 
 class PostCreate(View):
-            
 
     # Modeled after PostUpdate exploria
     def post(self, request):
-        title = request.POST.get("title")
-        image = request.POST.get("image")
+        title = request.POST.get('title')
+        image = request.POST.get('image')
         description = request.POST.get('description')
         lat = request.POST.get('lat')
         long = request.POST.get('long')
 
-        new_post = Post.objects.create(title=title, image=image, description=description, lat=lat, long=long, user=request.user)
+        image_time = request.POST.get('image_time')
+        created_at = request.POST.get('created_at')
+        updated_at = request.POST.get('updated_at')
+
+        new_post = Post.objects.create(title=title, image=image, description=description, lat=lat, long=long, image_time=image_time, created_at=created_at, updated_at=updated_at, user=request.user)
         return redirect("post_detail", pk=new_post.pk)
         
 
@@ -136,10 +145,16 @@ class PostUpdate(View):
 class PostCreateForm(ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'image', 'description', 'lat', 'long']
+        fields = ['title', 'image', 'description', 'lat', 'long', 'image_time']
         widgets = {
             'title': TextInput(attrs={'class': 'myfieldclass'}),
+            'image_time': TextInput(attrs={'type': 'date'})
+            
         }
+    
+    def __init__(self, *args, **kwargs):
+        super(PostCreateForm, self).__init__(*args, **kwargs)
+        self.fields['image_time'].required = False
 
 class PostDelete(DeleteView):
     model = Post
@@ -156,17 +171,8 @@ class PostUpdateForm(ModelForm):
 # === End Post Routes ===
     
 
+class Signup(View):
 
-
-# Auth
-class Signup(TemplateView):
-    template_name = "signup.html"
-
-    def get(self, request):
-        form = UserCreationForm()
-        context = {"form": form}
-        return render(request, "registration/signup.html", context)
-    
     def post(self, request):
         form = UserCreationForm(request.POST)
 
@@ -174,9 +180,40 @@ class Signup(TemplateView):
             user = form.save()
             login(request, user)
             return redirect("home")
-        else:
-            # write dtl to accept this message and auto display modal with warning inside after going back to submission page
-            messages.warning(self.request, 'Form submission error, plese try again.')
-            context = {"form": form}
-            return redirect("back")
-            return render(request, "registration/signup.html", context) # FIXME - if invalid form input, how to redirect back to modal form? Currently redirecting to unused signup page
+
+
+
+    # def post(self, request):
+    #     title = request.POST.get("title")
+    #     image = request.POST.get("image")
+    #     description = request.POST.get('description')
+    #     lat = request.POST.get('lat')
+    #     long = request.POST.get('long')
+
+    #     new_post = Post.objects.create(title=title, image=image, description=description, lat=lat, long=long, user=request.user)
+    #     return redirect("post_detail", pk=new_post.pk)
+
+
+
+# Auth
+# class Signup(TemplateView):
+#     template_name = "signup.html"
+
+#     def get(self, request):
+#         form = UserCreationForm()
+#         context = {"form": form}
+#         return render(request, "registration/signup.html", context)
+    
+#     def post(self, request):
+#         form = UserCreationForm(request.POST)
+
+#         if form.is_valid():
+#             user = form.save()
+#             login(request, user)
+#             return redirect("home")
+#         else:
+#             # write dtl to accept this message and auto display modal with warning inside after going back to submission page
+#             messages.warning(self.request, 'Form submission error, plese try again.')
+#             context = {"form": form}
+#             return redirect("back")
+#             return render(request, "registration/signup.html", context) # FIXME - if invalid form input, how to redirect back to modal form? Currently redirecting to unused signup page

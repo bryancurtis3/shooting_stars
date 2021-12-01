@@ -44,6 +44,7 @@ nav {
         color: $dark;
         text-decoration: none;
         transition: .1s ease-in-out;
+        cursor: pointer;
 
         &:hover {
             color: scale-color($dark, $lightness: +25%);
@@ -149,6 +150,7 @@ button, .button {
     top: 50vh;
     left: 50vw;
     transform: translate(-50%, -50%);
+    border: 1px solid $med;
     
     display: grid;
     display: none;
@@ -164,7 +166,19 @@ button, .button {
     h3 {
         text-align: center;
         font-size: 32px;
-        margin: 0 0 10px 0;
+        margin: 0 0 5px 0;
+        padding-bottom: 5px;
+        border-bottom: 1px solid $med;
+    }
+
+    table {
+        border-collapse: separate;
+        border-spacing: 0 15px;
+        td {
+            input {
+                width: 100%;
+            }
+        }
     }
 
     p {
@@ -189,6 +203,8 @@ button, .button {
 
     .buttons {
         margin-top: 20px;
+        display: flex;
+        justify-content: right;
 
         .button {
             background-color: $meddark;
