@@ -64,6 +64,41 @@
     <!-- Content block for extension pages -->
     <main>
         {% block content %}{% endblock content %}
+
+        {% if user.is_authenticated %}    
+    
+        {% else %}
+            <div class="overlay" onClick="overlay();"></div>
+
+            <form class="modal" action="{% url 'signup' %}" method="POST">
+                <h3>Sign Up</h3>
+                {% csrf_token %}
+                {{signup_form.as_p}}
+                <div class="buttons">
+                    <button type="button" onClick="modal()">Cancel</button>
+                    <input class="button" type="submit" value="Submit"></input>
+                </div>
+            </form>
+
+            <form class="login" action="{% url 'login' %}" method="POST">
+                <h3>Login</h3>
+                {% csrf_token %}
+                {{login_form.as_p}}
+                <div class="buttons">
+                    <button type="button" onClick="login()">Cancel</button>
+                    <input class="button" type="submit" value="Submit"></input>
+                </div>
+            </form>
+        {% endif %}
+
+        {% if messages %}
+            {% for message in messages %}
+                <section class="message">
+                    <p>{{message}}</p>
+                    <i class="fas fa-times" onClick="message()"></i>
+                </section>
+            {% endfor %}
+    {% endif %}
     </main>
 
 </body>

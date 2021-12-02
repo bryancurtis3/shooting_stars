@@ -235,7 +235,6 @@ const windChart = function windChart() {
     
         tooltipItems.forEach(function(tooltipItem) {
             sum += tooltipItem.parsed.y;
-            console.log("hello?")
         });
         return 'Sum: ';
     };

@@ -270,3 +270,32 @@ button, .button {
         min-width: 100vw;
     }
 }
+
+.message {
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed; 
+    bottom: 0px; 
+    left: 0px; 
+    width: 100%;
+    z-index: 11; 
+    border-radius: 0px;
+    background-color: #ffe7a4;
+    color: $dark;
+    opacity: .9;
+    backdrop-filter: blur(3px);
+
+    .fas {
+        font-size: 24px;
+        color: $dark;
+        align-self: center;
+        opacity: .5;
+        cursor: pointer;
+        transition: .1s ease-in-out;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

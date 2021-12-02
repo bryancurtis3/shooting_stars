@@ -7,3 +7,40 @@ $medlight: #be95c4;
 $light: #e0b1cb;
 $text: #f3e0ea;
 // $test: #cccccc;
+
+// $themes: (
+//         light: (
+//                 card-bg: $bg--card--light,
+//                 text: $text--light,
+//                 text-secondary: $text--2--light,
+//                 link: $brand--blue--light,
+//                 hover: $hover--light,
+//                 border: $border--light
+//         ),
+//         dark: (
+//                 dark: $dark,
+//                 meddark: $meddark,
+//                 med: $med,
+//                 medlight: $medlight,
+//                 light: $light,
+//                 text: $text
+//         ),
+// );
+
+// @mixin themed() {
+//     @each $theme, $map in $themes {
+//       .theme--#{$theme} & {
+//         $theme-map: () !global;
+//         @each $key, $submap in $map {
+//           $value: map-get(map-get($themes, $theme), '#{$key}');
+//           $theme-map: map-merge($theme-map, ($key: $value)) !global;
+//         }
+//         @content;
+//         $theme-map: null !global;
+//       }
+//     }
+//   }
+  
+//   @function t($key) {
+//     @return map-get($theme-map, $key);
+//   }

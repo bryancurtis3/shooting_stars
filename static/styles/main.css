@@ -187,4 +187,28 @@ button, .button {
   .modal {
     min-width: 100vw; } }
 
+.message {
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 11;
+  border-radius: 0px;
+  background-color: #ffe7a4;
+  color: #231942;
+  opacity: .9;
+  backdrop-filter: blur(3px); }
+  .message .fas {
+    font-size: 24px;
+    color: #231942;
+    align-self: center;
+    opacity: .5;
+    cursor: pointer;
+    transition: .1s ease-in-out; }
+    .message .fas:hover {
+      opacity: 1; }
+
 /*# sourceMappingURL=main.css.map */

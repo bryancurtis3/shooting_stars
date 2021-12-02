@@ -85,13 +85,13 @@
 
 
 <!-- Alert message (currently for deletion) -->
-{% if messages %}
+{% comment %} {% if messages %}
     {% for message in messages %}
         <section class="message">
             <p>{{message}}</p>
             <i class="fas fa-times" onClick="message()"></i>
         </section>
     {% endfor %}
-{% endif %}
+{% endif %} {% endcomment %}
 
 {% endblock content %}

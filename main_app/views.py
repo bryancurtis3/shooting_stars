@@ -136,6 +136,7 @@ class PostUpdate(View):
             # idk about this
             context = {"form": form, "pk": pk}
             return render(request, "posts/posts.html", context)
+            pass
 
 
 class PostCreateForm(ModelForm):
@@ -179,7 +180,10 @@ class Signup(View):
             user = form.save()
             login(request, user)
             return redirect("home")
-
+        else: 
+            messages.warning(self.request, 'Form submission error, plese try again.')
+            context = {"form": form}
+            return redirect("/")
 
 
     # def post(self, request):
