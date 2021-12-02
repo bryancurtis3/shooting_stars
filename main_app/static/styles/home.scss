@@ -7,13 +7,43 @@ h1 {
     margin-top: 0;
 }
 
-#place-header {
+.place-header {
     text-align: center;
-    font-size: 46px;
-    margin: 0;
-    padding: 30px 0;
-    border-top: 1px solid $medlight;
+    padding: 30px;
+
+    #place-header {
+        text-align: center;
+        font-size: 46px;
+        margin: 0;
+        padding-bottom: 10px;
+        border-top: 1px solid $medlight;
+    }
+
+    a {
+        color: $light;
+        transition: .17s ease-in-out;
+        cursor: pointer;
+
+        .fas {
+            padding: 2px 0 0 18px;
+            position: absolute;
+            display: none;
+            color: $dark;
+        }
+
+        &:hover {
+            color: #e8c5d8;
+            background-color: rgba($medlight, .9);
+            padding: 4px 40px 4px 8px;
+            border-radius: 14px;
+
+            .fas {
+                display: inline-block;
+            }
+        }
+    }
 }
+
 
 .search {
     display: flex;
@@ -103,9 +133,14 @@ h1 {
                 align-items: center;
                 gap: 10px;
 
-                .fas {
+                .fas, .fab {
                     font-size: 24px;
                 }
+
+                // img {
+                //     height: 24px;
+                //     width: 24px;
+                // }
             }
 
             p {

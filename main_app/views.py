@@ -80,8 +80,9 @@ class Posts(TemplateView):
         # Get, sanitize, and prepare user query
         query = self.request.GET.get("q")
         if query:
+            query = query.replace(" ", "")
             latitude = query.split(",")[0]
-            longitude = query.split(" ")[1]
+            longitude = query.split(",")[1]
             context["posts"] = Post.objects.filter(
                 lat__istartswith = latitude,
                 long__istartswith = longitude
@@ -183,7 +184,7 @@ class Signup(View):
         else: 
             messages.warning(self.request, 'Form submission error, plese try again.')
             context = {"form": form}
-            return redirect("/")
+            return redirect(request.POST.get("redirect"))
 
 
     # def post(self, request):

@@ -101,8 +101,11 @@ const getData = function getData(place) {
         cloudChart();
         windChart();
 
-        // Set iFrame
-        $("#iframe").attr('src', `https://www.lightpollutionmap.info/#zoom=12.00&lat=${json.location.lat}&lon=${json.location.lon}&layers=B0FFFFFFFTFFFFFFFFFF`);
+        // Set iFrame source
+        $("#iframe").attr('src', `https://www.lightpollutionmap.info/#zoom=12.00&lat=${lat}&lon=${lon}&layers=B0FFFFFFFTFFFFFFFFFF`);
+
+        // Set see-posts href
+        $("#posts-from-here").attr("href", `/posts/?q=${lat},${lon}`);
     
         // Header
         json.location.country === "United States of America" ? area = json.location.region : area = json.location.country; // State if USA, else: country

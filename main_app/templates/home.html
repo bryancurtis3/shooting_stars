@@ -8,7 +8,6 @@
 
 {% block scripts %}
 <script src="{% static 'scripts/weatherApi.js' %}" defer></script>
-<script src="{% static 'scripts/posts.js' %}" defer></script>
 {% endblock scripts %}
 
 
@@ -32,16 +31,14 @@
         >
     </form>
 
-    <h2 id="place-header">Loading...</h2>
-
-{% comment %} 
-    <section class="iframe">
-        <iframe src="https://www.lightpollutionmap.info/#zoom=2.20&lat=39.7242&lon=-98.5634&layers=B0FFFFFFFTFFFFFFFFFF" title="description"></iframe>
+    <section class="place-header">
+        <h2 id="place-header">Loading...</h2>
+        <a id="posts-from-here">
+            See posts from here
+            <i class="fas fa-arrow-right"></i>
+        </a>
     </section>
- {% endcomment %}
-
-    {% comment %} <iframe src="https://www.timeanddate.com/sun/@2168925"></iframe> {% endcomment %}
-
+    
     
     <section class="info">
 
@@ -73,6 +70,14 @@
                 <div class="object">
                     <i class="fas fa-moon"></i>
                     <p>Moon</p>
+                    <span id="lum"></span>
+                </div>
+                <div class="m"><p id="moonset"></p><span id="moonsetM"></span></div>
+                <div class="m"><p id="moonrise"></p><span id="moonriseM"></span></div>
+
+                <div class="object">
+                    <i class="fab fa-galactic-republic"></i>
+                    <p>Galaxy</p>
                     <span id="lum"></span>
                 </div>
                 <div class="m"><p id="moonset"></p><span id="moonsetM"></span></div>

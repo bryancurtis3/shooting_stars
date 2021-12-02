@@ -36,41 +36,46 @@ nav {
     cursor: pointer; }
     nav a:hover, nav button:hover {
       color: #e8c5d8; }
-  nav .nav-right .fa-star {
+  nav .nav-right .fas {
     font-size: 26px;
-    color: #5e548e;
+    color: #be95c4;
     display: none; }
   nav .nav-right .words {
     display: flex;
     justify-content: space-evenly;
     gap: 20px; }
-    nav .nav-right .words .dropdown {
-      position: relative;
-      display: inline-block; }
-      nav .nav-right .words .dropdown .dropdown-content {
-        display: none;
-        position: absolute;
-        right: 0;
-        background-color: #5e548e;
-        margin-top: 15px;
-        min-width: 120px;
-        box-shadow: 0px 8px 12px 2px rgba(224, 177, 203, 0.2);
-        z-index: 1;
-        border: 1px solid #e0b1cb;
-        border-radius: 4px; }
-        nav .nav-right .words .dropdown .dropdown-content a {
-          margin: 0;
-          padding: 12px 8px;
-          margin: 0 8px;
-          text-decoration: none;
-          display: block;
-          border-bottom: 1px solid #e0b1cb; }
-          nav .nav-right .words .dropdown .dropdown-content a:last-child {
-            border: 0; }
-  @media only screen and (max-width: 420px) {
+  nav .nav-right .burger {
+    display: none; }
+  nav .nav-right .dropdown {
+    position: relative;
+    display: inline-block; }
+    nav .nav-right .dropdown .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #5e548e;
+      margin-top: 15px;
+      min-width: 120px;
+      box-shadow: 0px 8px 12px 2px rgba(224, 177, 203, 0.2);
+      z-index: 1;
+      border: 1px solid #e0b1cb;
+      border-radius: 4px; }
+      nav .nav-right .dropdown .dropdown-content a {
+        margin: 0;
+        padding: 12px 8px;
+        margin: 0 8px;
+        text-decoration: none;
+        display: block;
+        border-bottom: 1px solid #e0b1cb; }
+        nav .nav-right .dropdown .dropdown-content a:last-child {
+          border: 0; }
+  @media only screen and (max-width: 550px) {
     nav .nav-right .words {
       display: none; }
-    nav .nav-right .fa-star {
+    nav .nav-right .burger {
+      display: block;
+      height: 26px; }
+    nav .nav-right .fas {
       display: block; } }
 a {
   text-decoration: none;
@@ -184,7 +189,7 @@ button, .button {
         transform: scale(1.05); }
 
 @media only screen and (max-width: 450px) {
-  .modal {
+  .modal, .login, .edit {
     min-width: 100vw; } }
 
 .message {
@@ -197,10 +202,9 @@ button, .button {
   width: 100%;
   z-index: 11;
   border-radius: 0px;
-  background-color: #ffe7a4;
+  background-color: #e0b1cb;
   color: #231942;
-  opacity: .9;
-  backdrop-filter: blur(3px); }
+  opacity: .9; }
   .message .fas {
     font-size: 24px;
     color: #231942;

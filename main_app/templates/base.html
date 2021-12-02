@@ -22,6 +22,7 @@
     {% block styles %}{% endblock styles %}
 
     <!-- Local Scripts -->
+    <script src="{% static 'scripts/posts.js'%}" defer></script>
     {% block scripts %}{% endblock scripts %}
 
     <title>Shooting Stars</title>
@@ -41,23 +42,39 @@
                     <a onClick="dropdown()">{{user.username}}</a>
                     <div class="dropdown-content">
                         <a href="{% url 'logout' %}" title="User logout">Logout</a>  
-                        <a href="#" title="See your posts">See Posts</a>
-                        {% comment %} <a href="#"></a> {% endcomment %}
+                        <a href="#" title="See your posts">Your Posts</a>
                     </div>
                 </div>
-                 
+            </div>
+
+            <div class="burger">
+                <i class="fas fa-bars" onClick="dropdown()"></i>
+                <div class="dropdown">
+                    <div class="dropdown-content">
+                        <a href="{% url 'logout' %}" title="User logout">Logout</a>  
+                        <a href="#" title="See your posts">Your Posts</a>
+                    </div>
+                </div>
             </div>
         {% else %}
             <div class="words">
                 <a href="/posts" title="All Posts">Posts</a>   
-                <a onClick="login()">Login</a>
-                <a onClick="modal()">Signup</a>
+                <a onClick="login()" title="User login">Login</a>
+                <a onClick="modal()" title="User signup">Signup</a>
+            </div>
+
+            <div class="burger">
+                <i class="fas fa-bars" onClick="dropdown()"></i>
+                <div class="dropdown">
+                    <div class="dropdown-content">
+                        <a href="/posts" title="All Posts">Posts</a>   
+                        <a onClick="login()" title="User login">Login</a>
+                        <a onClick="modal()" title="User signup">Signup</a>
+                    </div>
+                </div>
             </div>
         {% endif %}
 
-            <div class="star">
-                <i class="far fa-star"></i>
-            </div>
         </section>
     </nav>
 
@@ -74,6 +91,7 @@
                 <h3>Sign Up</h3>
                 {% csrf_token %}
                 {{signup_form.as_p}}
+                <input type="hidden" value="{{request.path}}" name="redirect">
                 <div class="buttons">
                     <button type="button" onClick="modal()">Cancel</button>
                     <input class="button" type="submit" value="Submit"></input>
@@ -98,7 +116,7 @@
                     <i class="fas fa-times" onClick="message()"></i>
                 </section>
             {% endfor %}
-    {% endif %}
+        {% endif %}
     </main>
 
 </body>

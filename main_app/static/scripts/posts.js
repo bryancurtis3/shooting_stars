@@ -38,12 +38,7 @@ const message = function message() {
 }
 
 const dropdown = function dropdown() {
-    const width = $(".dropdown").css("width")
-    $(".dropdown").click(() => {
-            $(".dropdown-content").toggle()
-            $(".dropdown-content").css("width", width)
-        }
-    )
+    $(".dropdown-content").toggle()
 }
 
 $(".more").click(more)
