@@ -75,16 +75,26 @@ h1 {
 
 
 .search {
-    display: flex;
+    display: grid;
     justify-content: center;
     margin-bottom: 40px;
+
+    .fas {
+        position: absolute;
+        padding-left: 380px;
+        padding-top: 14px;
+        font-size: 26px;
+        color: $med;
+    }
 
     input {
         height: 60px;
         width: 50vw;
         min-width: 325px;
         max-width: 600px;
-        padding: 10px;
+        justify-self: center;
+        padding: 10px 20px;
+        // padding: 10px 10px 10px 50px;
         margin-bottom: 10px;
         font-size: 18px;
         color: $text;

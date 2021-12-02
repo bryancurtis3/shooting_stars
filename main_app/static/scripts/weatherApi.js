@@ -253,13 +253,11 @@ const windChart = function windChart() {
     const ctx = document.getElementById('windChart').getContext('2d');
 
     
-    // Footer attempt
+    // Tooltip wind direction
     const footer = (tooltipItems) => {
-        let i = 0
         let direction = null
         tooltipItems.forEach(function(tooltipItem) {
-            i += 1
-            direction = windDir[i]
+            direction = windDir[tooltipItem.dataIndex]
         });
         return direction;
     };

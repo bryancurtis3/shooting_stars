@@ -54,15 +54,22 @@ h1 {
         display: inline-block; }
 
 .search {
-  display: flex;
+  display: grid;
   justify-content: center;
   margin-bottom: 40px; }
+  .search .fas {
+    position: absolute;
+    padding-left: 380px;
+    padding-top: 14px;
+    font-size: 26px;
+    color: #9f86c0; }
   .search input {
     height: 60px;
     width: 50vw;
     min-width: 325px;
     max-width: 600px;
-    padding: 10px;
+    justify-self: center;
+    padding: 10px 20px;
     margin-bottom: 10px;
     font-size: 18px;
     color: #f3e0ea;
