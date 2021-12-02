@@ -7,7 +7,7 @@ h1 {
 .place-header {
   text-align: center;
   padding: 0 30px 30px 30px;
-  margin: 0 30px;
+  margin: 0 25px;
   border-top: 1px solid #be95c4; }
   .place-header .spinner-holder {
     height: 116px;
@@ -33,24 +33,24 @@ h1 {
     font-size: 46px;
     display: none;
     margin: 0;
-    padding: 30px 0 10px 0;
+    padding: 30px 0 15px 0;
     border-top: 1px solid #be95c4; }
-  .place-header a {
+  .place-header #posts-from-here {
     color: #e0b1cb;
     display: none;
     border-radius: 14px;
     transition: .17s ease-in-out;
     cursor: pointer; }
-    .place-header a .fas {
+    .place-header #posts-from-here .fas {
       padding: 2px 0 0 18px;
       position: absolute;
       display: none;
       color: #231942; }
-    .place-header a:hover {
+    .place-header #posts-from-here:hover {
       color: #f3e0ea;
       background-color: rgba(190, 149, 196, 0.9);
       padding: 4px 40px 4px 8px; }
-      .place-header a:hover .fas {
+      .place-header #posts-from-here:hover .fas {
         display: inline-block; }
 
 .search {

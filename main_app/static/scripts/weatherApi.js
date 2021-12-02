@@ -2,12 +2,19 @@ Chart.defaults.color = "#f3e0ea";
 const hourly = []
 const percentage = []
 const mph = []
+const gustMph = []
+const windDir = []
 const backgroundColor = []
 const windColor = []
 
 // console.log({userPlace})
 
 // Location weather data lookup
+/**
+ * 
+ * @param {*} place 
+ * @description takes in a location and displays current astronomical and meteorological data for the location to the webpage
+ */
 const getData = function getData(place) {
     fetch(`https://weatherapi-com.p.rapidapi.com/forecast.json?q=${place}&days=2`, {
         "method": "GET",
@@ -52,6 +59,14 @@ const getData = function getData(place) {
             // Wind
             const wind = today.hour[i].wind_mph;
             mph.push(wind);
+
+            // Wind Gusts
+            const gust = today.hour[i].gust_mph;
+            gustMph.push(gust - wind);
+
+            // Wind Direction
+            const dir = today.hour[i].wind_dir;
+            windDir.push(dir);
         }
     
         // Before sunrise
@@ -67,12 +82,14 @@ const getData = function getData(place) {
             // Wind
             const wind = nextDay.hour[i].wind_mph;
             mph.push(wind);
-    
-            // const info = `${hour}: ${cloud}% cloudy - ${wind}mph winds`;
-    
-            // // Output to HTML
-            // $("#hours").append(document.createTextNode(info));
-            // $("#hours").append(document.createElement("br"));
+
+            // Wind Gusts
+            const gust = nextDay.hour[i].gust_mph;
+            gustMph.push(gust - wind);
+
+            // Wind Direction
+            const dir = nextDay.hour[i].wind_dir;
+            windDir.push(dir);
         }
     
         // Milky way (really difficult to make this work everywhere)
@@ -127,13 +144,10 @@ const getData = function getData(place) {
         // Rise and set times with their cooresponding AM/PM
         const sunriseTime = noZero(sunrise.split(" ")[0]);
         const sunriseM = sunrise.split(" ")[1];
-
         const sunsetTime = noZero(sunset.split(" ")[0]);
         const sunsetM = sunset.split(" ")[1];
-
         const moonriseTime = noZero(moonrise.split(" ")[0]);
         const moonriseM = moonrise.split(" ")[1]
-
         const moonsetTime = noZero(moonset.split(" ")[0]);
         const moonsetM = moonset.split(" ")[1];
 
@@ -160,15 +174,11 @@ const getData = function getData(place) {
         
     }))
     .catch(err => {
-        $("#place-header").text(`Location not found.`);
+        $("#place-header").text(`Location Not Found`);
         console.error(err);
     });
 }
 
-
-// console.log(hourly)
-// console.log(percentage)
-// console.log(backgroundColor)
 
 
 const cloudChart = function cloudChart() {
@@ -236,57 +246,78 @@ const cloudChart = function cloudChart() {
     })
 }
 
+// console.log(windDir)
+
 const windChart = function windChart() {
     // This is vanilla for gradient compatibility
     const ctx = document.getElementById('windChart').getContext('2d');
 
+    
     // Footer attempt
     const footer = (tooltipItems) => {
-    
+        let i = 0
+        let direction = null
         tooltipItems.forEach(function(tooltipItem) {
-            sum += tooltipItem.parsed.y;
+            i += 1
+            direction = windDir[i]
         });
-        return 'Sum: ';
+        return direction;
     };
     
-    // Gradient
-    const gradient = ctx.createLinearGradient(0, 0, 400, 0);
+    // Wind Gradient
+    const gradient = ctx.createLinearGradient(0, 0, 300, 0);
     gradient.addColorStop(0, '#e0b1cbb3');
-    gradient.addColorStop(1, '#e21559f2');
+    gradient.addColorStop(1, '#eb6c9cb3');
+
+    // Gust Gradient
+    const gustGradient = ctx.createLinearGradient(200, 0, 600, 0);
+    gustGradient.addColorStop(0, '#eb6c9cb3');
+    gustGradient.addColorStop(1, '#e21559f2');
 
     const windChart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: hourly,
-            datasets: [{
+            datasets: 
+            [{
                 label: 'wind mph',
                 data: mph,
                 backgroundColor: gradient,
                 hoverBorderColor: '#f3e0ea',
                 hoverBorderWidth: 2,
             },
+            {
+                label: 'gust mph',
+                data: gustMph,
+                backgroundColor: gustGradient,
+                hoverBorderColor: '#f3e0ea',
+                hoverBorderWidth: 2,
+            }
         ]
         },
         options: {
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    stacked: true,
                 },
                 x: {
                     suggestedMax: 10,
+                    stacked: true,
                 },
             },
             indexAxis: "y",
             responsive: true,
             maintainAspectRatio: false,
-        },
-        plugins: {
-            tooltip: {
-                callbacks: {
-                    footer: footer,
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        footer: footer,
+                    }
                 }
-            }
+            },
         },
+
     })
 }
 

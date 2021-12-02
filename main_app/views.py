@@ -184,7 +184,7 @@ class PostUpdateForm(ModelForm):
 # === End Post Routes ===
 
 
-
+# === Auth Views ===
 class Signup(View):
 
     def post(self, request):
@@ -196,8 +196,9 @@ class Signup(View):
             return redirect("home")
         else: 
             messages.warning(self.request, 'Form submission error, plese try again.')
-            context = {"form": form}
-            return render(request, "home", context)
+            context = {'login_form': LoginForm(), "signup_form": form}
+            return render(request, "home.html", context)
+
 
 class LoginForm(Form):
     username = CharField(max_length=255, required=True)
@@ -217,15 +218,21 @@ class LoginForm(Form):
         user = authenticate(username=username, password=password)
         return user
 
-    def login_view(request):
+
+class Login(View):
+
+    def post(self, request):
         form = LoginForm(request.POST or None)
+         
         if request.POST and form.is_valid():
             user = form.login(request)
             if user:
                 login(request, user)
-                return redirect("/posts/")
-        return render(request, 'home.html', {'login_form': form })
+                return redirect("/")
 
+        # maybe try to reshow modals with contexts
+        messages.warning(self.request, 'Form submission error, plese try again.')
+        return render(request, 'home.html', {'login_form': form, 'signup_form': CustomUserCreationForm(), 'loginError': 'error'})
 
 
     # def post(self, request):
