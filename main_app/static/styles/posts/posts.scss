@@ -68,11 +68,12 @@ main {
     background-color: $meddark;
     border-radius: 6px;
     cursor: pointer;
-    transition: .1s ease-in-out;
+    transition: .15s ease-in-out;
 
     &:hover {
         transform: scaley(1.1);
         outline: 1px solid rgba($light, .1);
+        -webkit-box-shadow: 0 0 6px 4px rgba($light, .6);
         box-shadow: 0 0 6px 4px rgba($light, .6);
 
         .fa-plus {
@@ -89,6 +90,7 @@ main {
 }
 
 .posts {
+    width: 100%;
     max-width: 800px;
     justify-self: center;
     display: grid;
@@ -98,7 +100,7 @@ main {
         padding: 20px;
         background-color: $meddark;
         border-radius: 6px;
-        min-width: calc(100vw - 40px);
+        width: inherit;
         max-width: 800px;
     
         .title {
@@ -138,7 +140,8 @@ main {
             border-radius: 4px;
             object-fit: cover;
             object-position: 50% 40%;
-            // outline: 1px solid $medlight;
+            -webkit-box-shadow: 0 3px 10px 2px $dark;
+            box-shadow: 0 3px 10px 2px $dark;
         }
 
     
@@ -163,7 +166,7 @@ main {
     }
     @media only screen and (min-width: 840px) {
         .post {
-            min-width: 0;
+            // min-width: 0;
         }
     }
 }

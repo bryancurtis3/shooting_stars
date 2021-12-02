@@ -22,9 +22,11 @@ main {
     .post .main-title .fas {
       font-size: 42px;
       color: #f3e0ea;
-      transition: .1s ease-in-out; }
+      transition: .1s ease-in-out;
+      color: #e0b1cb; }
       .post .main-title .fas:hover {
-        transform: scale(1.05); }
+        transform: scale(1.1);
+        color: #e9c8db; }
   .post .subtitle {
     display: flex;
     justify-content: space-between;
@@ -50,7 +52,9 @@ main {
     max-height: 700px;
     border-radius: 4px;
     object-fit: cover;
-    object-position: 50% 40%; }
+    object-position: 50% 40%;
+    -webkit-box-shadow: 0 3px 10px 2px #231942;
+    box-shadow: 0 3px 10px 2px #231942; }
   .post .description {
     font-size: 18px;
     padding: 0 5px; }

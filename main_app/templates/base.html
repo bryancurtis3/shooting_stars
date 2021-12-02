@@ -48,11 +48,12 @@
             </div>
 
             <div class="burger">
-                <i class="fas fa-bars" onClick="dropdown()"></i>
                 <div class="dropdown">
+                    <i class="fas fa-bars" onClick="dropdown()"></i>
                     <div class="dropdown-content">
+                        <a href="/posts" title="All Posts">All Posts</a>   
+                        {% comment %} <a href="#" title="See your posts">Your Posts</a> {% endcomment %}
                         <a href="{% url 'logout' %}" title="User logout">Logout</a>  
-                        <a href="#" title="See your posts">Your Posts</a>
                     </div>
                 </div>
             </div>

@@ -13,14 +13,14 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 # Authentication imports
-from django.contrib.auth import get_user_model, login
+from django.contrib.auth import get_user_model, login, authenticate
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
 # from django.http import request
 from django.contrib import messages
-from django.forms import ModelForm, TextInput
+from django.forms import ModelForm, TextInput, Form, CharField, ValidationError, PasswordInput
 
 
 from main_app.models import Post, User
@@ -36,7 +36,7 @@ class IncludeAuthForms:
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["signup_form"] = CustomUserCreationForm()
-        context["login_form"] = AuthenticationForm()
+        context["login_form"] = LoginForm()
         return context
 
 # class CustomUserCreationForm(UserCreationForm):
@@ -52,7 +52,7 @@ class Home(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["signup_form"] = CustomUserCreationForm()
-        context["login_form"] = AuthenticationForm()
+        context["login_form"] = LoginForm()
 
         # Home route shouldn't need this?? ===
         # Get, sanitize, and prepare user query
@@ -77,6 +77,11 @@ class Posts(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
+        # Auth forms
+        context = super().get_context_data(**kwargs)
+        context["signup_form"] = CustomUserCreationForm()
+        context["login_form"] = AuthenticationForm()
+
         # Get, sanitize, and prepare user query
         query = self.request.GET.get("q")
         if query:
@@ -93,6 +98,8 @@ class Posts(TemplateView):
         context["form"] = form
         return context
 
+
+
 class PostDetail(DetailView):
     model = Post
     template_name = "posts/post_detail.html"
@@ -103,6 +110,12 @@ class PostDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+
+        # Auth forms
+        context = super().get_context_data(**kwargs)
+        context["signup_form"] = CustomUserCreationForm()
+        context["login_form"] = AuthenticationForm()
+
         form = PostUpdateForm(instance=Post.objects.get(pk=self.kwargs.get("pk")))
         context["form"] = form
         return context
@@ -184,7 +197,35 @@ class Signup(View):
         else: 
             messages.warning(self.request, 'Form submission error, plese try again.')
             context = {"form": form}
-            return redirect(request.POST.get("redirect"))
+            return render(request, "home", context)
+
+class LoginForm(Form):
+    username = CharField(max_length=255, required=True)
+    password = CharField(widget=PasswordInput, required=True)
+
+    def clean(self):
+        username = self.cleaned_data.get('username')
+        password = self.cleaned_data.get('password')
+        user = authenticate(username=username, password=password)
+        if not user or not user.is_active:
+            raise ValidationError("Sorry, that login was invalid. Please try again.")
+        return self.cleaned_data
+
+    def login(self, request):
+        username = self.cleaned_data.get('username')
+        password = self.cleaned_data.get('password')
+        user = authenticate(username=username, password=password)
+        return user
+
+    def login_view(request):
+        form = LoginForm(request.POST or None)
+        if request.POST and form.is_valid():
+            user = form.login(request)
+            if user:
+                login(request, user)
+                return redirect("/posts/")
+        return render(request, 'home.html', {'login_form': form })
+
 
 
     # def post(self, request):

@@ -106,6 +106,13 @@ const getData = function getData(place) {
 
         // Set see-posts href
         $("#posts-from-here").attr("href", `/posts/?q=${lat},${lon}`);
+
+        // Spinner switcher
+        $(".spinner-holder").hide();
+        $(".place-header").css("border-top", "none")
+        $(".place-header").css("margin", "0");
+        $("#place-header").show();
+        $("#posts-from-here").show();
     
         // Header
         json.location.country === "United States of America" ? area = json.location.region : area = json.location.country; // State if USA, else: country

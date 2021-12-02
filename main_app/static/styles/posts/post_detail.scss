@@ -33,9 +33,11 @@ main {
             font-size: 42px;
             color: $text;
             transition: .1s ease-in-out;
+            color: $light;
 
             &:hover {
-                transform: scale(1.05);
+                transform: scale(1.1);
+                color: scale-color($light, $lightness: +30%);
             }
         }
     }
@@ -75,7 +77,8 @@ main {
         border-radius: 4px;
         object-fit: cover;
         object-position: 50% 40%;
-        // outline: 1px solid $medlight;
+        -webkit-box-shadow: 0 3px 10px 2px $dark;
+        box-shadow: 0 3px 10px 2px $dark;
     }
 
     .description {

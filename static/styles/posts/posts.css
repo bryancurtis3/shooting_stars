@@ -52,10 +52,11 @@ main {
   background-color: #5e548e;
   border-radius: 6px;
   cursor: pointer;
-  transition: .1s ease-in-out; }
+  transition: .15s ease-in-out; }
   .new-post:hover {
     transform: scaley(1.1);
     outline: 1px solid rgba(224, 177, 203, 0.1);
+    -webkit-box-shadow: 0 0 6px 4px rgba(224, 177, 203, 0.6);
     box-shadow: 0 0 6px 4px rgba(224, 177, 203, 0.6); }
     .new-post:hover .fa-plus {
       transform: scalex(1.1); }
@@ -66,6 +67,7 @@ main {
     cursor: pointer; }
 
 .posts {
+  width: 100%;
   max-width: 800px;
   justify-self: center;
   display: grid;
@@ -74,7 +76,7 @@ main {
     padding: 20px;
     background-color: #5e548e;
     border-radius: 6px;
-    min-width: calc(100vw - 40px);
+    width: inherit;
     max-width: 800px; }
     .posts .post .title {
       margin: 0 0 15px 0;
@@ -102,7 +104,9 @@ main {
       max-height: 600px;
       border-radius: 4px;
       object-fit: cover;
-      object-position: 50% 40%; }
+      object-position: 50% 40%;
+      -webkit-box-shadow: 0 3px 10px 2px #231942;
+      box-shadow: 0 3px 10px 2px #231942; }
     .posts .post .description, .posts .post .description-full {
       font-size: 18px; }
       .posts .post .description span, .posts .post .description-full span {
@@ -114,9 +118,7 @@ main {
           font-weight: 600; }
     .posts .post .description-full {
       display: none; }
-  @media only screen and (min-width: 840px) {
-    .posts .post {
-      min-width: 0; } }
+
 .overlay {
   position: fixed;
   top: 0;
