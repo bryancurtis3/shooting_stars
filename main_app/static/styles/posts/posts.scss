@@ -72,6 +72,8 @@ main {
 
     &:hover {
         transform: scaley(1.1);
+        outline: 1px solid rgba($light, .1);
+        box-shadow: 0 0 6px 4px rgba($light, .6);
 
         .fa-plus {
             transform: scalex(1.1);

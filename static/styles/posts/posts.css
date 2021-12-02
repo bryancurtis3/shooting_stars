@@ -54,7 +54,9 @@ main {
   cursor: pointer;
   transition: .1s ease-in-out; }
   .new-post:hover {
-    transform: scaley(1.1); }
+    transform: scaley(1.1);
+    outline: 1px solid rgba(224, 177, 203, 0.1);
+    box-shadow: 0 0 6px 4px rgba(224, 177, 203, 0.6); }
     .new-post:hover .fa-plus {
       transform: scalex(1.1); }
   .new-post .fa-plus {

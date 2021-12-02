@@ -37,8 +37,15 @@
         {% if user.is_authenticated %}
             <div class="words">
                 <a href="/posts" title="All Posts">Posts</a>   
-                <a href="">{{user.username}}</a>
-                <a href="{% url 'logout' %}">Logout</a>   
+                <div class="dropdown">
+                    <a onClick="dropdown()">{{user.username}}</a>
+                    <div class="dropdown-content">
+                        <a href="{% url 'logout' %}" title="User logout">Logout</a>  
+                        <a href="#" title="See your posts">See Posts</a>
+                        {% comment %} <a href="#"></a> {% endcomment %}
+                    </div>
+                </div>
+                 
             </div>
         {% else %}
             <div class="words">

@@ -15,6 +15,8 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 # Authentication imports
 from django.contrib.auth import get_user_model, login
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 # from django.http import request
 from django.contrib import messages
@@ -52,17 +54,18 @@ class Home(TemplateView):
         context["signup_form"] = CustomUserCreationForm()
         context["login_form"] = AuthenticationForm()
 
+        # Home route shouldn't need this?? ===
         # Get, sanitize, and prepare user query
-        query = self.request.GET.get("q")
-        if query:
-            latitude = query.split(",")[0]
-            longitude = query.split(" ")[1]
-            context["posts"] = Post.objects.filter(
-                lat__istartswith = latitude,
-                long__istartswith = longitude
-            )
-        else:
-            context["posts"] = Post.objects.all()
+        # query = self.request.GET.get("q")
+        # if query:
+        #     latitude = query.split(",")[0]
+        #     longitude = query.split(" ")[1]
+        #     context["posts"] = Post.objects.filter(
+        #         lat__istartswith = latitude,
+        #         long__istartswith = longitude
+        #     )
+        # else:
+        #     context["posts"] = Post.objects.all()
         
         return context
 
@@ -82,9 +85,9 @@ class Posts(TemplateView):
             context["posts"] = Post.objects.filter(
                 lat__istartswith = latitude,
                 long__istartswith = longitude
-            )
+            ).order_by('created_at')
         else:
-            context["posts"] = Post.objects.all()
+            context["posts"] = Post.objects.all().order_by('created_at')
         form = PostCreateForm()
         context["form"] = form
         return context
@@ -103,6 +106,7 @@ class PostDetail(DetailView):
         context["form"] = form
         return context
 
+@method_decorator(login_required, name='dispatch')
 class PostCreate(View):
 
     # Modeled after PostUpdate exploria
@@ -120,9 +124,8 @@ class PostCreate(View):
         new_post = Post.objects.create(title=title, image=image, description=description, lat=lat, long=long, image_time=image_time, created_at=created_at, updated_at=updated_at, user=request.user)
         return redirect("post_detail", pk=new_post.pk)
         
-
+@method_decorator(login_required, name='dispatch')
 class PostUpdate(View):
-
     def post(self, request, pk):
 
         form = PostUpdateForm(request.POST)
@@ -149,7 +152,7 @@ class PostCreateForm(ModelForm):
         super(PostCreateForm, self).__init__(*args, **kwargs)
         self.fields['image_time'].required = False
 
-
+@method_decorator(login_required, name='dispatch')
 class PostDelete(DeleteView):
     model = Post
     success_url = "/posts/"

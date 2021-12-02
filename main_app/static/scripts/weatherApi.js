@@ -5,6 +5,8 @@ const mph = []
 const backgroundColor = []
 const windColor = []
 
+// console.log({userPlace})
+
 // Location weather data lookup
 const getData = function getData(place) {
     fetch(`https://weatherapi-com.p.rapidapi.com/forecast.json?q=${place}&days=2`, {
@@ -100,7 +102,6 @@ const getData = function getData(place) {
         windChart();
 
         // Set iFrame
-        console.log(`https://www.lightpollutionmap.info/#zoom=12.00&lat=${json.location.lat}&lon=${json.location.lon}&layers=B0FFFFFFFTFFFFFFFFFF`)
         $("#iframe").attr('src', `https://www.lightpollutionmap.info/#zoom=12.00&lat=${json.location.lat}&lon=${json.location.lon}&layers=B0FFFFFFFTFFFFFFFFFF`);
     
         // Header
@@ -301,6 +302,10 @@ const params = Object.fromEntries(urlSearchParams.entries());
 if (params.place) {
     place = params.place;
     getData(place)
+
+// } else if (typeof userPlace !== "undefined") {
+//     getData(userPlace)
+
 } else {
     navigator.geolocation.getCurrentPosition(function (position) {
         console.log(position.coords.latitude);
@@ -317,24 +322,24 @@ if (params.place) {
 
 
 
-function plotSine(ctx) {
-    var width = ctx.canvas.width;
-    var height = ctx.canvas.height;
-    var scale = 20;
+// function plotSine(ctx) {
+//     var width = ctx.canvas.width;
+//     var height = ctx.canvas.height;
+//     var scale = 20;
 
-    ctx.beginPath();
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = "rgb(66,44,255)";
+//     ctx.beginPath();
+//     ctx.lineWidth = 2;
+//     ctx.strokeStyle = "rgb(66,44,255)";
     
-    var x = 0;
-    var y = 0;
-    var amplitude = 40;
-    var frequency = 20;
-    //ctx.moveTo(x, y);
-    while (x < width) {
-        y = height/2 + amplitude * Math.sin(x/frequency);
-        ctx.lineTo(x, y);
-        x = x + 1;
-    }
-    ctx.stroke();
-}
+//     var x = 0;
+//     var y = 0;
+//     var amplitude = 40;
+//     var frequency = 20;
+//     //ctx.moveTo(x, y);
+//     while (x < width) {
+//         y = height/2 + amplitude * Math.sin(x/frequency);
+//         ctx.lineTo(x, y);
+//         x = x + 1;
+//     }
+//     ctx.stroke();
+// }

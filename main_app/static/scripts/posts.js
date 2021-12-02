@@ -37,4 +37,15 @@ const message = function message() {
     $(".message").hide();
 }
 
+const dropdown = function dropdown() {
+    const width = $(".dropdown").css("width")
+    console.log(width)
+    $(".dropdown").click(
+        ()=>{
+            $(".dropdown-content").toggle()
+            $(".dropdown-content").css("width", width)
+        }
+    )
+}
+
 $(".more").click(more)
