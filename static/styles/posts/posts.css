@@ -95,7 +95,10 @@ main {
         font-size: 15px; }
     .posts .post img {
       width: 100%;
-      border-radius: 4px; }
+      max-height: 600px;
+      border-radius: 4px;
+      object-fit: cover;
+      object-position: 50% 40%; }
     .posts .post .description, .posts .post .description-full {
       font-size: 18px; }
       .posts .post .description span, .posts .post .description-full span {

@@ -33,11 +33,20 @@
         <a class="logo" href="/" title="Shooting Stars Home">Shooting Stars</a>
 
         <section class="nav-right">
+
+        {% if user.is_authenticated %}
+            <div class="words">
+                <a href="/posts" title="All Posts">Posts</a>   
+                <a href="">{{user.username}}</a>
+                <a href="{% url 'logout' %}">Logout</a>   
+            </div>
+        {% else %}
             <div class="words">
                 <a href="/posts" title="All Posts">Posts</a>   
                 <a onClick="login()">Login</a>
                 <a onClick="modal()">Signup</a>
             </div>
+        {% endif %}
 
             <div class="star">
                 <i class="far fa-star"></i>

@@ -47,7 +47,10 @@ main {
         font-weight: 600; }
   .post img {
     width: 100%;
-    border-radius: 4px; }
+    max-height: 700px;
+    border-radius: 4px;
+    object-fit: cover;
+    object-position: 50% 40%; }
   .post .description {
     font-size: 18px;
     padding: 0 5px; }

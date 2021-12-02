@@ -48,7 +48,8 @@ h1 {
   grid-template-columns: 1fr 1fr;
   gap: 20px; }
   .info .timedate:hover {
-    outline: 1px solid #e0b1cb; }
+    outline: 1px solid rgba(224, 177, 203, 0.6);
+    box-shadow: 0 0 10px 6px rgba(224, 177, 203, 0.6); }
   .info .box {
     position: relative;
     width: 100%;
@@ -83,7 +84,7 @@ h1 {
       .info .box .box-inner #lum {
         margin-left: -5px;
         letter-spacing: 1px;
-        color: rgba(174, 164, 177, 0.822); }
+        color: rgba(216, 172, 212, 0.822); }
     .info .box h3 {
       font-size: 28px;
       font-weight: bold;

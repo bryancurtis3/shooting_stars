@@ -63,7 +63,8 @@ h1 {
 
     .timedate {
         &:hover {
-            outline: 1px solid $light;
+            outline: 1px solid rgba($light, .6);
+            box-shadow: 0 0 10px 6px rgba($light, .6);
         }
     }
 
@@ -117,7 +118,7 @@ h1 {
             #lum {
                 margin-left: -5px;
                 letter-spacing: 1px;
-                color: rgba(174, 164, 177, 0.822);
+                color: rgba(216, 172, 212, 0.822);
             }
         }
 

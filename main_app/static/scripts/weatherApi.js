@@ -74,10 +74,10 @@ const getData = function getData(place) {
         }
     
         // Milky way (really difficult to make this work everywhere)
-        const month = today.date.split("-")[1]
-        if (month === "12" || month === "1" || month === "2") {
-            console.log("this works")
-        }
+        // const month = today.date.split("-")[1]
+        // if (month === "12" || month === "1" || month === "2") {
+        //     console.log("this works")
+        // }
     
         // Calculate cloud bar color
         for (let i = 0; i < percentage.length; i++) {

@@ -27,7 +27,7 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
-    background-color: $med;
+    background-color: $meddark;
 
     .logo {
         font-size: 24px;
@@ -35,18 +35,18 @@ nav {
         transition: .1s ease-in-out;
 
         &:hover {
-            color: scale-color($dark, $lightness: +25%);
+            color: scale-color($light, $lightness: +25%);
         }
     }
 
     a {
         font-weight: 500;
-        color: $dark;
+        color: $light;
         transition: .1s ease-in-out;
         cursor: pointer;
 
         &:hover {
-            color: scale-color($dark, $lightness: +25%);
+            color: scale-color($light, $lightness: +25%);
         }
     }
 

@@ -13,7 +13,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 # Authentication imports
-from django.contrib.auth import login
+from django.contrib.auth import get_user_model, login
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 # from django.http import request
@@ -25,10 +25,15 @@ from main_app.models import Post, User
 
 # Create your views here.
 
+class CustomUserCreationForm(UserCreationForm):
+    class Meta:
+        model = get_user_model()
+        fields = ["username", "location"]
+
 class IncludeAuthForms:
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["signup_form"] = UserCreationForm()
+        context["signup_form"] = CustomUserCreationForm()
         context["login_form"] = AuthenticationForm()
         return context
 
@@ -44,7 +49,7 @@ class Home(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["signup_form"] = UserCreationForm()
+        context["signup_form"] = CustomUserCreationForm()
         context["login_form"] = AuthenticationForm()
 
         # Get, sanitize, and prepare user query
@@ -116,19 +121,6 @@ class PostCreate(View):
         return redirect("post_detail", pk=new_post.pk)
         
 
-# class PostCreate(CreateView):
-#     model = Post
-#     fields = ['title', 'image', 'description', 'lat', 'long']
-#     template_name = "post_create.html"
-#     success_url = "/posts/"
-
-#     def get_success_url(self):
-#         return reverse('post_detail', kwargs={'pk': self.object.pk})
-
-#     def form_valid(self, form):
-#         form.instance.user = self.request.user
-#         return super(PostCreate, self).form_valid(form)
-
 class PostUpdate(View):
 
     def post(self, request, pk):
@@ -141,6 +133,7 @@ class PostUpdate(View):
             # idk about this
             context = {"form": form, "pk": pk}
             return render(request, "posts/posts.html", context)
+
 
 class PostCreateForm(ModelForm):
     class Meta:
@@ -156,6 +149,7 @@ class PostCreateForm(ModelForm):
         super(PostCreateForm, self).__init__(*args, **kwargs)
         self.fields['image_time'].required = False
 
+
 class PostDelete(DeleteView):
     model = Post
     success_url = "/posts/"
@@ -164,17 +158,19 @@ class PostDelete(DeleteView):
         messages.success(self.request, 'Post successfully deleted.')
         return reverse('posts')
 
+
 class PostUpdateForm(ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'image', 'description', 'lat', 'long']
 # === End Post Routes ===
-    
+
+
 
 class Signup(View):
 
     def post(self, request):
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
 
         if form.is_valid():
             user = form.save()

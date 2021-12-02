@@ -22,20 +22,20 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  background-color: #9f86c0; }
+  background-color: #5e548e; }
   nav .logo {
     font-size: 24px;
     font-weight: 600;
     transition: .1s ease-in-out; }
     nav .logo:hover {
-      color: #4b368e; }
+      color: #e8c5d8; }
   nav a {
     font-weight: 500;
-    color: #231942;
+    color: #e0b1cb;
     transition: .1s ease-in-out;
     cursor: pointer; }
     nav a:hover {
-      color: #4b368e; }
+      color: #e8c5d8; }
   nav section {
     display: flex;
     justify-content: space-evenly;

@@ -18,13 +18,19 @@ const modal = function modal() {
 }
 
 const login = function login() {
-    console.log("logging in")
     $(".login").toggle();
+    $(".overlay").toggle();
 }
 
 const edit = function edit() {
     $(".edit").toggle();
     $(".overlay").toggle();
+}
+
+const overlay = function overlay() {
+    $(".overlay").toggle();
+    $(".login").hide();
+    $(".modal").hide();
 }
 
 const message = function message() {
