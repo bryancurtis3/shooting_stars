@@ -39,6 +39,8 @@ class IncludeAuthForms:
         context = super().get_context_data(**kwargs)
         context["signup_form"] = CustomUserCreationForm()
         context["login_form"] = LoginForm()
+        context["location_form"] = UserUpdateForm()
+
         return context
 
 # class CustomUserCreationForm(UserCreationForm):
@@ -55,6 +57,8 @@ class Home(TemplateView):
         context = super().get_context_data(**kwargs)
         context["signup_form"] = CustomUserCreationForm()
         context["login_form"] = LoginForm()
+        context["location_form"] = UserUpdateForm()
+
 
         # Home route shouldn't need this?? ===
         # Get, sanitize, and prepare user query
@@ -83,6 +87,8 @@ class Posts(TemplateView):
         context = super().get_context_data(**kwargs)
         context["signup_form"] = CustomUserCreationForm()
         context["login_form"] = AuthenticationForm()
+        context["location_form"] = UserUpdateForm()
+
 
         # Get, sanitize, and prepare user query
         query = self.request.GET.get("q")
@@ -145,10 +151,13 @@ class PostDetail(DetailView):
         context = super().get_context_data(**kwargs)
         context["signup_form"] = CustomUserCreationForm()
         context["login_form"] = AuthenticationForm()
+        context["location_form"] = UserUpdateForm()
+
 
         form = PostUpdateForm(instance=Post.objects.get(pk=self.kwargs.get("pk")))
         context["form"] = form
         return context
+
 
 @method_decorator(login_required, name='dispatch')
 class PostCreate(View):
@@ -168,6 +177,7 @@ class PostCreate(View):
         new_post = Post.objects.create(title=title, image=image, description=description, lat=lat, long=long, image_time=image_time, created_at=created_at, updated_at=updated_at, user=request.user)
         return redirect("post_detail", pk=new_post.pk)
         
+
 @method_decorator(login_required, name='dispatch')
 class PostUpdate(View):
     def post(self, request, pk):
@@ -175,12 +185,11 @@ class PostUpdate(View):
         form = PostUpdateForm(request.POST)
         if form.is_valid():
             Post.objects.filter(pk=pk).update(title=request.POST.get('title'), image=request.POST.get('image'), description=request.POST.get('description'), lat=request.POST.get('lat'), long=request.POST.get('long'))
-            return redirect("posts")
+            return redirect("post_detail", pk=pk)
         else:
             # idk about this
             context = {"form": form, "pk": pk}
             return render(request, "posts/posts.html", context)
-            pass
 
 
 class PostCreateForm(ModelForm):
@@ -197,6 +206,7 @@ class PostCreateForm(ModelForm):
         super(PostCreateForm, self).__init__(*args, **kwargs)
         self.fields['image_time'].required = False
 
+
 @method_decorator(login_required, name='dispatch')
 class PostDelete(DeleteView):
     model = Post
@@ -212,6 +222,24 @@ class PostUpdateForm(ModelForm):
         model = Post
         fields = ['title', 'image', 'description', 'lat', 'long']
 # === End Post Routes ===
+
+
+class UserUpdateForm(ModelForm):
+    class Meta:
+        model = User
+        fields = ['location']
+
+class UserUpdate(View):
+    def post(self, request, pk):
+
+        form = UserUpdateForm(request.POST)
+        if form.is_valid():
+            User.objects.filter(pk=pk).update(location=request.POST.get('location'))
+            return redirect("home")
+        else:
+            messages.warning(self.request, 'Form submission error, plese try again.')
+            context = {'login_form': LoginForm(), "signup_form": UserCreationForm(), 'location_form': form}
+            return render(request, "home.html", context)
 
 
 # === Auth Views ===

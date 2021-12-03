@@ -48,8 +48,9 @@
                 <div class="dropdown">
                     <a onClick="dropdown()">{{user.username}}</a>
                     <div class="dropdown-content">
-                        <a href="{% url 'logout' %}" title="User logout">Logout</a>  
                         <a href="/posts/?user={{user.pk}}" title="See your posts">Your Posts</a>
+                        <a onClick="userUpdate()" title="User location update">Change Location</a>
+                        <a href="{% url 'logout' %}" title="User logout">Logout</a>  
                     </div>
                 </div>
             </div>
@@ -90,8 +91,19 @@
     <main>
         {% block content %}{% endblock content %}
 
-        {% if user.is_authenticated %}    
-    
+        {% if user.is_authenticated %}  
+            <div class="overlay" onClick="overlay();"></div>
+
+            <form class="user-update" action="{% url 'user_update' user.pk %}" method="POST">
+                <h3>Update Location</h3>
+                {% csrf_token %}
+                {{location_form.as_p}}
+                <input type="hidden" value="{{request.path}}" name="redirect">
+                <div class="buttons">
+                    <button type="button" onClick="modal()">Cancel</button>
+                    <input class="button" type="submit" value="Submit"></input>
+                </div>
+            </form>
         {% else %}
             <div class="overlay" onClick="overlay();"></div>
 

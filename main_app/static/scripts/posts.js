@@ -27,6 +27,11 @@ const edit = function edit() {
     $(".overlay").toggle();
 }
 
+const userUpdate = function userUpdate() {
+    $(".user-update").toggle();
+    $(".overlay").toggle();
+}
+
 const overlay = function overlay() {
     $(".overlay").toggle();
     $(".login").hide();

@@ -146,7 +146,7 @@ button, .button {
   transition: .2s ease-in-out;
   z-index: 2; }
 
-.modal, .edit, .login {
+.modal, .edit, .login, .user-update {
   height: max-content;
   position: fixed;
   min-width: 450px;
@@ -162,28 +162,28 @@ button, .button {
   border-radius: 6px;
   background-color: #231942;
   z-index: 11; }
-  .modal h3, .edit h3, .login h3 {
+  .modal h3, .edit h3, .login h3, .user-update h3 {
     text-align: center;
     font-size: 32px;
     margin: 0 0 5px 0;
     padding-bottom: 5px;
     border-bottom: 1px solid #9f86c0; }
-  .modal table, .edit table, .login table {
+  .modal table, .edit table, .login table, .user-update table {
     border-collapse: separate;
     border-spacing: 0 15px; }
-    .modal table td input, .edit table td input, .login table td input {
+    .modal table td input, .edit table td input, .login table td input, .user-update table td input {
       width: 100%; }
-  .modal p, .edit p, .login p {
+  .modal p, .edit p, .login p, .user-update p {
     display: grid;
     gap: 5px;
     margin: 10px 0; }
-    .modal p input, .modal p textarea, .edit p input, .edit p textarea, .login p input, .login p textarea {
+    .modal p input, .modal p textarea, .edit p input, .edit p textarea, .login p input, .login p textarea, .user-update p input, .user-update p textarea {
       padding: 10px;
       margin-bottom: 10px; }
-    .modal p textarea, .edit p textarea, .login p textarea {
+    .modal p textarea, .edit p textarea, .login p textarea, .user-update p textarea {
       height: 180px;
       max-width: 100%; }
-    .modal p label, .edit p label, .login p label {
+    .modal p label, .edit p label, .login p label, .user-update p label {
       font-size: 18px; }
 
 @media only screen and (max-width: 450px) {
