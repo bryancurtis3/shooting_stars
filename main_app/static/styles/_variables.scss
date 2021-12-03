@@ -1,11 +1,11 @@
-// $dark: rgb(53, 54, 58);
-// $meddark: rgba(32, 33, 36, 1);
-$dark: #231942;
-$meddark: #5e548e;
-$med: #9f86c0;
-$medlight: #be95c4;
-$light: #e0b1cb;
-$text: #f3e0ea;
+// var(--dark): rgb(53, 54, 58);
+// var(--meddark): rgba(32, 33, 36, 1);
+// var(--dark): #231942;
+// var(--meddark): #5e548e;
+// var(--med): #9f86c0;
+// var(--medlight): #be95c4;
+// var(--light): #e0b1cb;
+// var(--text): #f3e0ea;
 
 :root {
     --dark: #231942;
@@ -14,16 +14,18 @@ $text: #f3e0ea;
     --medlight: #be95c4;
     --light: #e0b1cb;
     --text: #f3e0ea;
+    --lum: #d8acd4d1;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
     :root {
-        --dark: red;
-        --meddark: blue;
+        --dark: #e0b1cb;
+        --meddark: #be95c4;
         --med: #9f86c0;
         --medlight: #be95c4;
-        --light: #e0b1cb;
-        --text: #f3e0ea;
+        --light: #5e548e;
+        --text: #50487a;
+        --lum: #855992d1;
     }
 }
 // $test: #db80a3c5;
@@ -32,19 +34,19 @@ $text: #f3e0ea;
 // $themes: (
 //         light: (
 //                 card-bg: $bg--card--light,
-//                 text: $text--light,
-//                 text-secondary: $text--2--light,
+//                 text: var(--text)--light,
+//                 text-secondary: var(--text)--2--light,
 //                 link: $brand--blue--light,
 //                 hover: $hover--light,
 //                 border: $border--light
 //         ),
 //         dark: (
-//                 dark: $dark,
-//                 meddark: $meddark,
-//                 med: $med,
-//                 medlight: $medlight,
-//                 light: $light,
-//                 text: $text
+//                 dark: var(--dark),
+//                 meddark: var(--meddark),
+//                 med: var(--med),
+//                 medlight: var(--medlight),
+//                 light: var(--light),
+//                 text: var(--text)
 //         ),
 // );
 

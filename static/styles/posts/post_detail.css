@@ -1,3 +1,20 @@
+:root {
+  --dark: #231942;
+  --meddark: #5e548e;
+  --med: #9f86c0;
+  --medlight: #be95c4;
+  --light: #e0b1cb;
+  --text: #f3e0ea; }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --dark: red;
+    --meddark: blue;
+    --med: #9f86c0;
+    --medlight: #be95c4;
+    --light: #e0b1cb;
+    --text: #f3e0ea; } }
+
 main {
   display: grid;
   min-height: 0; }
@@ -26,7 +43,7 @@ main {
       color: #e0b1cb; }
       .post .main-title .fas:hover {
         transform: scale(1.1);
-        color: #e9c8db; }
+        filter: brightness(120%); }
   .post .subtitle {
     display: flex;
     justify-content: space-between;

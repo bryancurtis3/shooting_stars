@@ -4,20 +4,22 @@
   --med: #9f86c0;
   --medlight: #be95c4;
   --light: #e0b1cb;
-  --text: #f3e0ea; }
+  --text: #f3e0ea;
+  --lum: #d8acd4d1; }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --dark: red;
-    --meddark: blue;
+    --dark: #e0b1cb;
+    --meddark: #be95c4;
     --med: #9f86c0;
     --medlight: #be95c4;
-    --light: #e0b1cb;
-    --text: #f3e0ea; } }
+    --light: #5e548e;
+    --text: #50487a;
+    --lum: #855992d1; } }
 
 h1 {
   font-size: 42px;
-  color: #f3e0ea;
+  color: var(--text);
   text-align: center;
   margin-top: 0; }
 
@@ -25,7 +27,7 @@ h1 {
   text-align: center;
   padding: 0 30px 30px 30px;
   margin: 0 25px;
-  border-top: 1px solid #be95c4; }
+  border-top: 1px solid var(--medlight); }
   .place-header .spinner-holder {
     height: 116px;
     display: grid;
@@ -34,9 +36,9 @@ h1 {
     height: 50px;
     width: 50px;
     margin-top: 30px;
-    background: #231942;
+    background: var(--dark);
     border-radius: 50%;
-    border-top: 2px solid #e0b1cb;
+    border-top: 2px solid var(--light);
     border-right: 2px solid transparent;
     border-bottom: none;
     border-left: none;
@@ -51,9 +53,9 @@ h1 {
     display: none;
     margin: 0;
     padding: 30px 0 15px 0;
-    border-top: 1px solid #be95c4; }
+    border-top: 1px solid var(--medlight); }
   .place-header #posts-from-here {
-    color: #e0b1cb;
+    color: var(--light);
     display: none;
     border-radius: 14px;
     transition: .17s ease-in-out;
@@ -62,10 +64,10 @@ h1 {
       padding: 2px 0 0 18px;
       position: absolute;
       display: none;
-      color: #231942; }
+      color: var(--dark); }
     .place-header #posts-from-here:hover {
-      color: #f3e0ea;
-      background-color: rgba(190, 149, 196, 0.9);
+      color: var(--text);
+      background-color: var(--med);
       padding: 4px 40px 4px 8px; }
       .place-header #posts-from-here:hover .fas {
         display: inline-block; }
@@ -82,7 +84,7 @@ h1 {
     padding-left: 15px;
     padding-top: 14px;
     font-size: 26px;
-    color: #9f86c0;
+    color: var(--med);
     z-index: 10; }
   .search input {
     position: relative;
@@ -93,15 +95,15 @@ h1 {
     justify-self: center;
     padding: 10px 20px 10px 55px;
     font-size: 18px;
-    color: #f3e0ea;
-    background-color: #5e548e;
-    border-color: #be95c4;
+    color: var(--text);
+    background-color: var(--meddark);
+    border-color: var(--medlight);
     border-radius: 6px; }
     .search input::placeholder {
-      color: #9f86c0; }
+      color: var(--med); }
 
 .iframe {
-  background-color: #231942;
+  background-color: var(--dark);
   opacity: .7;
   z-index: 10;
   height: 600px;
@@ -110,7 +112,7 @@ h1 {
   .iframe iframe {
     width: 100%;
     height: inherit;
-    border: 5px solid #5e548e;
+    border: 5px solid var(--meddark);
     border-radius: 6px; }
 
 .info {
@@ -118,21 +120,21 @@ h1 {
   grid-template-columns: 1fr 1fr;
   gap: 20px; }
   .info .timedate:hover, .info .weather:hover {
-    outline: 1px solid rgba(224, 177, 203, 0.6);
-    box-shadow: 0 0 10px 6px rgba(224, 177, 203, 0.6); }
+    outline: 1px solid --light;
+    box-shadow: 0 0 10px 6px rgba(var(--light), 0.6); }
   .info .box {
     position: relative;
     width: 100%;
-    background-color: #5e548e;
+    background-color: var(--meddark);
     padding: 0 20px;
     border-radius: 6px;
-    color: #f3e0ea;
+    color: var(--text);
     font-size: 18px; }
     .info .box .rise-set {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr;
       grid-column: span 3;
-      border-bottom: 1px solid #9f86c0;
+      border-bottom: 1px solid var(--med);
       gap: 16px; }
       .info .box .rise-set .rise, .info .box .rise-set .set {
         margin-top: 38px; }
@@ -154,12 +156,12 @@ h1 {
       .info .box .box-inner #lum {
         margin-left: -5px;
         letter-spacing: 1px;
-        color: rgba(216, 172, 212, 0.822); }
+        color: var(--lum); }
     .info .box h3 {
       font-size: 28px;
       font-weight: bold;
       margin-bottom: 0;
-      border-bottom: 1px solid #9f86c0; }
+      border-bottom: 1px solid var(--med); }
     .info .box .chart-container {
       position: absolute;
       top: 60px;
