@@ -13,6 +13,12 @@ body {
     background-color: $dark;
 }
 
+// @media (prefers-color-scheme: dark) {
+//     body {
+//         background-color: var(--dark);
+//     }
+// }
+
 main {
     min-height: inherit;
     max-width: 1000px;
@@ -34,10 +40,27 @@ nav {
         font-weight: 600;
         transition: .1s ease-in-out;
 
+        
+
         &:hover {
             color: scale-color($light, $lightness: +25%);
+
+            // WIP
+            // .star {
+            //     animation-play-state: running;
+
+            //     &::before, &::after {
+            //         animation-play-state: running;
+            //     }
+            // }
         }
     }
+
+    // @media (prefers-color-scheme: dark) {
+    //     .logo {
+    //         color: $dark;
+    //     }
+    // }
 
     a, button {
         font-weight: 500;
@@ -309,3 +332,73 @@ button, .button {
         }
     }
 }
+
+// WIP
+// .star {
+//     // position: absolute;
+//     // left: 50%;
+//     // top: 50%;
+//     height: 4px;
+//     background: linear-gradient(-45deg, $light, rgba(0, 0, 255, 0));
+//     border-radius: 999px;
+//     filter: drop-shadow(0 0 6px $text);
+//     animation: tail 2s ease-in-out,
+//         falling 2s ease-in-out;
+//     animation-play-state: paused;
+// }
+
+// @keyframes tail {
+//     0% {
+//         width: 0;
+//     }
+
+//     30% {
+//         width: 80px;
+//     }
+
+//     100% {
+//         width: 0;
+//     }
+// }
+
+// @keyframes falling {
+//     0% {
+//         transform: translateX(0);
+//     }
+
+//     100% {
+//         transform: translateX(180px);
+//     }
+// }
+
+// .star::before,
+// .star::after {
+//     content: '';
+//     position: absolute;
+//     top: calc(50% - 2px);
+//     right: 0;
+//     height: 4px;
+//     background: linear-gradient(-45deg, rgba(0, 0, 255, 0), $light, rgba(0, 0, 255, 0));
+//     border-radius: 100%;
+//     transform: translateX(50%) rotateZ(45deg);
+//     animation: shining 2s ease-in-out infinite;
+//     animation-play-state: paused;
+// }
+
+// @keyframes shining {
+//     0% {
+//         width: 0;
+//     }
+
+//     50% {
+//         width: 30px;
+//     }
+
+//     100% {
+//         width: 0;
+//     }
+// }
+
+// .star::after {
+//     transform: translateX(50%) rotateZ(-45deg);
+// }
