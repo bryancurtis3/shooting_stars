@@ -1,21 +1,8 @@
-=== Shooting Stars Readme ===
-
-== About ==
-
-== Screenshots ==
-
-== Technologies ==
-
-== User Stories ==
-
-== Wireframes ==
-
-== ERD ==
 
 # Live Website
 [Visit the project website here](https://shooting-stars-app.herokuapp.com/)
 
-<!-- ![Website Demo](./main_app/static/images/demo2.png) -->
+![Website Demo](./main_app/static/images/homeDark.png)
 
 ![GA Logo](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
 
@@ -29,11 +16,10 @@ Shooting Stars is a web app created for Astrophotographers and Astronomers who n
 * [Technologies Used](#technologies-used)
 * [Features](#features)
 * [Screenshots](#screenshots)
-* [Planning](#planning)
+* [Wireframes](#planning)
 * [User Stories](#user-stories)
-* [Project Status](#project-status)
-* [Room for Improvement](#room-for-improvement)
-* [Acknowledgements](#acknowledgements)
+* [Contact](#get-in-touch)
+
 
 
 ## Technologies Used
@@ -54,26 +40,18 @@ Current ready features:
 
 
 ## Screenshots
-![Landing Page](./main_app/static/images/demo2.png)
-![Sign Up](./main_app/static/images/demo8.png)
-![About Developers](./main_app/static/images/demo3.png)
-![City Page](./main_app/static/images/demo4.png)
-![City Posts](./main_app/static/images/demo7.png)
-![Add Posts](./main_app/static/images/demo5.png)
-![Post](./main_app/static/images/demo9.png)
-![Post Comments](./main_app/static/images/demo10.png)
-![Post Edit](./main_app/static/images/demo12.png)
-![Post Delete](./main_app/static/images/demo11.png)
-![User Profile](./main_app/static/images/demo6.png)
+![Home Page](./main_app/static/images/homeDark.png)
+![Home Page Light](./main_app/static/images/homeLight.png)
+![Posts Index](./main_app/static/images/postsDark.png)
+![Post Detail](./main_app/static/images/postDark.png)
 
 
 ## Planning
-![Proposal Document](/main_app/static/images/proposal.png)
-![Proposal Theme](/main_app/static/images/proposal_theme.png)
-![User Flow](./main_app/static/images/userflow.png)
-![Wireframe1](./main_app/static/images/wireframe1.png)
-![Wireframe2](./main_app/static/images/wireframe2.png)
-![Trello Board](./main_app/static/images/planning5.png)
+![Home Wireframe](/main_app/static/images/wireframeHome.png)
+![Posts Wireframe](/main_app/static/images/wireframePosts.png)
+![Post Wireframe](./main_app/static/images/wireframePost.png)
+![ERD](./main_app/static/images/erd.png)
+
 
 
 ## User Stories
@@ -100,4 +78,3 @@ All Pages:
 ## Get In Touch
 
 If there's anything you would like to see added to this project or if you just want to know more, let me know here!
-
