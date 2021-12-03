@@ -190,23 +190,6 @@ const cloudChart = function cloudChart() {
     const gradient = ctx.createLinearGradient(0, 0, 400, 0);
     gradient.addColorStop(0, '#cccccc44');
     gradient.addColorStop(1, '#444444e6');
-
-    // let width, height, gradient;
-    // function getGradient(ctx, chartArea) {
-    //     const chartWidth = chartArea.right - chartArea.left;
-    //     const chartHeight = chartArea.bottom - chartArea.top;
-    //     if (!gradient || width !== chartWidth || height !== chartHeight) {
-    //         // Create the gradient because this is either the first render
-    //         // or the size of the chart has changed
-    //         width = chartWidth;
-    //         height = chartHeight;
-    //         const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
-    //         gradient.addColorStop(0, '#cccccc44');
-    //         gradient.addColorStop(1, '#444444e6');
-    //     }
-
-    //     return gradient;
-    // }
     
     const cloudChart = new Chart(ctx, {
         type: 'bar',
@@ -237,12 +220,7 @@ const cloudChart = function cloudChart() {
                 legend: {
                   position: 'top',
                 },
-                // tooltip: {
-                //     callbacks: {
-                //       footer: footer,
-                //     }
-                //   }
-              }
+            }
         },
     })
 }
@@ -342,8 +320,8 @@ if (params.place) {
     place = params.place;
     getData(place)
 
-// } else if (typeof userPlace !== "undefined") {
-//     getData(userPlace)
+} else if (typeof userPlace !== "undefined") {
+    getData(userPlace)
 
 } else {
     navigator.geolocation.getCurrentPosition(function (position) {
