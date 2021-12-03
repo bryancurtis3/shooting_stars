@@ -134,6 +134,13 @@ h1 {
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 
+    .timedate, .weather {
+        &:hover {
+            outline: 1px solid $light;
+            box-shadow: 0 0 10px 6px rgba($light, .6);
+        }
+    }
+
     .box {
         position: relative;
         width: 100%;
