@@ -7,16 +7,25 @@ $medlight: #be95c4;
 $light: #e0b1cb;
 $text: #f3e0ea;
 
-// :root {
-//     --dark: #231942;
-//     --meddark: #5e548e
-// }
-// @media (prefers-color-scheme: dark) {
-//     :root {
-//         --dark: red;
-//         --meddark: blue;
-//     }
-// }
+:root {
+    --dark: #231942;
+    --meddark: #5e548e;
+    --med: #9f86c0;
+    --medlight: #be95c4;
+    --light: #e0b1cb;
+    --text: #f3e0ea;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --dark: red;
+        --meddark: blue;
+        --med: #9f86c0;
+        --medlight: #be95c4;
+        --light: #e0b1cb;
+        --text: #f3e0ea;
+    }
+}
 // $test: #db80a3c5;
 // $test2: #e277a0b3;
 

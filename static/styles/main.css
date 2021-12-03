@@ -1,4 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
+:root {
+  --dark: #231942;
+  --meddark: #5e548e;
+  --med: #9f86c0;
+  --medlight: #be95c4;
+  --light: #e0b1cb;
+  --text: #f3e0ea; }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --dark: red;
+    --meddark: blue;
+    --med: #9f86c0;
+    --medlight: #be95c4;
+    --light: #e0b1cb;
+    --text: #f3e0ea; } }
+
 * {
   box-sizing: border-box; }
 

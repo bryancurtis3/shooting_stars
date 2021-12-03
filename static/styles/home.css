@@ -1,3 +1,20 @@
+:root {
+  --dark: #231942;
+  --meddark: #5e548e;
+  --med: #9f86c0;
+  --medlight: #be95c4;
+  --light: #e0b1cb;
+  --text: #f3e0ea; }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --dark: red;
+    --meddark: blue;
+    --med: #9f86c0;
+    --medlight: #be95c4;
+    --light: #e0b1cb;
+    --text: #f3e0ea; } }
+
 h1 {
   font-size: 42px;
   color: #f3e0ea;
@@ -100,7 +117,7 @@ h1 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px; }
-  .info .timedate:hover {
+  .info .timedate:hover, .info .weather:hover {
     outline: 1px solid rgba(224, 177, 203, 0.6);
     box-shadow: 0 0 10px 6px rgba(224, 177, 203, 0.6); }
   .info .box {

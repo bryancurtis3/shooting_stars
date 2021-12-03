@@ -167,6 +167,7 @@ const getData = function getData(place) {
         $("#temp").text("Temperature: " + temp_f + "° F");
 
         $(".timedate").attr("href", `https://www.timeanddate.com/astronomy/@${lat},${lon}`);
+        $(".weather").attr("href", `https://weather.com/weather/today/l/${lat},${lon}`);
 
         $("#phase").text("Moon Phase: " + moon_phase);
         $("#illumination").text("Illumination: " + moon_illumination + "%");

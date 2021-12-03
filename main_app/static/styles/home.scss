@@ -135,7 +135,7 @@ h1 {
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 
-    .timedate {
+    .timedate, .weather {
         &:hover {
             outline: 1px solid rgba($light, .6);
             box-shadow: 0 0 10px 6px rgba($light, .6);
