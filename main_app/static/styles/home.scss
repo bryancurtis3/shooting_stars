@@ -141,6 +141,7 @@ h1 {
             outline: 1px solid var(--light);
             -webkit-box-shadow: 0 0 10px 6px rgba(var(--light), .6);
             box-shadow: 0 0 10px 6px rgba(var(--light), .6);
+            box-shadow: 0 0 10px 6px #{'rgba(var(--light), .6)'};
         }
     }
 

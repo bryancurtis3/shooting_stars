@@ -106,13 +106,6 @@ const getData = function getData(place) {
             backgroundColor[i] = `rgba(${color}, ${color}, ${color}, .${calc})`;
         }
     
-        // Calculate wind bar color
-        // for (let i = 0; i < percentage.length; i++) {
-        //     const calc = percentage[i];
-        //     const color = 100 - (percentage[i] / 2 + 20);
-        //     percentage[i] < 10 ? backgroundColor[i] = `rgba(40, 40, 40, .0${calc})` : 
-        //     backgroundColor[i] = `rgba(${color}, ${color}, ${color}, .${calc})`
-        // }
     
         // Generate charts
         cloudChart();
@@ -191,23 +184,6 @@ const cloudChart = function cloudChart() {
     gradient.addColorStop(0, '#cccccc44');
     gradient.addColorStop(1, '#444444e6');
 
-    // let width, height, gradient;
-    // function getGradient(ctx, chartArea) {
-    //     const chartWidth = chartArea.right - chartArea.left;
-    //     const chartHeight = chartArea.bottom - chartArea.top;
-    //     if (!gradient || width !== chartWidth || height !== chartHeight) {
-    //         // Create the gradient because this is either the first render
-    //         // or the size of the chart has changed
-    //         width = chartWidth;
-    //         height = chartHeight;
-    //         const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
-    //         gradient.addColorStop(0, '#cccccc44');
-    //         gradient.addColorStop(1, '#444444e6');
-    //     }
-
-    //     return gradient;
-    // }
-    
     const cloudChart = new Chart(ctx, {
         type: 'bar',
         data: {
@@ -237,11 +213,6 @@ const cloudChart = function cloudChart() {
                 legend: {
                   position: 'top',
                 },
-                // tooltip: {
-                //     callbacks: {
-                //       footer: footer,
-                //     }
-                //   }
               }
         },
     })
@@ -356,29 +327,3 @@ if (params.place) {
         return getData(userLocation);
     }, error, options);
 } 
-
-
-
-
-
-// function plotSine(ctx) {
-//     var width = ctx.canvas.width;
-//     var height = ctx.canvas.height;
-//     var scale = 20;
-
-//     ctx.beginPath();
-//     ctx.lineWidth = 2;
-//     ctx.strokeStyle = "rgb(66,44,255)";
-    
-//     var x = 0;
-//     var y = 0;
-//     var amplitude = 40;
-//     var frequency = 20;
-//     //ctx.moveTo(x, y);
-//     while (x < width) {
-//         y = height/2 + amplitude * Math.sin(x/frequency);
-//         ctx.lineTo(x, y);
-//         x = x + 1;
-//     }
-//     ctx.stroke();
-// }
