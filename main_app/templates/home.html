@@ -24,12 +24,14 @@
     <h1>Search a Spot</h1>
 
     <form class="search" action="/" method="GET">
-        {% comment %} <i class="fas fa-search-location"></i> {% endcomment %}
-        <input 
-        name="place"
-        type="search"
-        placeholder="Decimal coordinates, zip, or city"
-        />
+        <div class="search-icon-holder">
+            <i class="fas fa-search-location"></i>
+            <input 
+            name="place"
+            type="search"
+            placeholder="Decimal coordinates, zip, or city"
+            />
+        </div>
     </form>
 
     <section class="place-header">

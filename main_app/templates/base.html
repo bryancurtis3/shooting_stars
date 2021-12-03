@@ -14,8 +14,11 @@
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/jpg" href="https://static.thenounproject.com/png/811327-200.png"/>
 
     <!-- Local Styles -->
     <link rel="stylesheet" href="{% sass_src 'styles/main.scss' %}">
@@ -42,7 +45,7 @@
                     <a onClick="dropdown()">{{user.username}}</a>
                     <div class="dropdown-content">
                         <a href="{% url 'logout' %}" title="User logout">Logout</a>  
-                        <a href="#" title="See your posts">Your Posts</a>
+                        <a href="/posts/?user={{user.pk}}" title="See your posts">Your Posts</a>
                     </div>
                 </div>
             </div>

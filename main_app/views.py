@@ -84,6 +84,8 @@ class Posts(TemplateView):
 
         # Get, sanitize, and prepare user query
         query = self.request.GET.get("q")
+        userPosts = self.request.GET.get("user")
+
         if query:
             query = query.replace(" ", "")
             latitude = query.split(",")[0]
@@ -94,6 +96,10 @@ class Posts(TemplateView):
             ).order_by('created_at')
         else:
             context["posts"] = Post.objects.all().order_by('created_at')
+
+        if userPosts:
+            context["posts"] = Post.objects.filter(user_id = userPosts)
+
         form = PostCreateForm()
         context["form"] = form
         return context

@@ -36,12 +36,26 @@ main {
         align-items: center;
         width: calc(100% - 156px);
     
-        input {
-            height: 50px;
+        .search-icon-holder {
             width: 100%;
             min-width: 100px;
-            // max-width: 500px;
-            padding: 10px;
+        }
+    
+        .fas {
+            position: absolute;
+            padding-left: 15px;
+            padding-top: 10px;
+            font-size: 26px;
+            color: $med;
+            z-index: 10;
+        }
+        
+        input {
+            height: 50px;
+            width: inherit;
+            min-width: 100px;
+            padding: 10px 20px 10px 55px;
+
             font-size: 18px;
             color: $text;
             background-color: $meddark;

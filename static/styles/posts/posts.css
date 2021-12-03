@@ -27,11 +27,21 @@ main {
     justify-content: center;
     align-items: center;
     width: calc(100% - 156px); }
+    .header .search .search-icon-holder {
+      width: 100%;
+      min-width: 100px; }
+    .header .search .fas {
+      position: absolute;
+      padding-left: 15px;
+      padding-top: 10px;
+      font-size: 26px;
+      color: #9f86c0;
+      z-index: 10; }
     .header .search input {
       height: 50px;
-      width: 100%;
+      width: inherit;
       min-width: 100px;
-      padding: 10px;
+      padding: 10px 20px 10px 55px;
       font-size: 18px;
       color: #f3e0ea;
       background-color: #5e548e;

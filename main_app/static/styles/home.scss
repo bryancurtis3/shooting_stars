@@ -78,24 +78,29 @@ h1 {
     display: grid;
     justify-content: center;
     margin-bottom: 40px;
+    position: relative;
+
+    .search-icon-holder {
+        margin-bottom: 10px;
+    }
 
     .fas {
         position: absolute;
-        padding-left: 380px;
+        padding-left: 15px;
         padding-top: 14px;
         font-size: 26px;
         color: $med;
+        z-index: 10;
     }
 
     input {
+        position: relative;
         height: 60px;
         width: 50vw;
         min-width: 325px;
         max-width: 600px;
         justify-self: center;
-        padding: 10px 20px;
-        // padding: 10px 10px 10px 50px;
-        margin-bottom: 10px;
+        padding: 10px 20px 10px 55px;
         font-size: 18px;
         color: $text;
         background-color: $meddark;
