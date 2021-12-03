@@ -163,8 +163,8 @@ const getData = function getData(place) {
         $("#moonset").text(moonsetTime);
         $("#moonsetM").text(moonsetM);
 
-        $("#humidity").text("Humidity: "+ humidity + "%");
-        $("#temp").text("Temperature: " + temp_f + "° F");
+        $("#humidity").text(humidity + "%");
+        $("#temp").text(+ temp_f + "° F");
 
         $(".timedate").attr("href", `https://www.timeanddate.com/astronomy/@${lat},${lon}`);
         $(".weather").attr("href", `https://weather.com/weather/today/l/${lat},${lon}`);
