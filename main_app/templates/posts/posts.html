@@ -43,8 +43,8 @@
     <article class="post">
         <a class="title" href="/posts/{{post.pk}}" title="Go to post">{{post.title}}</a>
         <div class="subtitle">
-            <h4>{{post.user.username}}</h4>
-            <p class="coords">{{post.lat}}, {{post.long}}</p>
+            <a href="/posts/?user={{user.pk}}" title="See user's posts">{{post.user.username}}</a>
+            <a class="coords" href="/posts/?q={{post.lat|slice:5}}%2C+{{post.long|slice:6}}" title="Search posts from this area">{{post.lat}}, {{post.long}}</a>
         </div>
         <a href="/posts/{{post.pk}}" title="Go to post">
             <img src="{{post.image}}" alt="Post image">

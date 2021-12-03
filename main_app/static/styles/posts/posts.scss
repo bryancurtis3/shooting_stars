@@ -134,7 +134,7 @@ main {
             display: flex;
             justify-content: space-between;
     
-            h4 {
+            a {
                 display: inline;
                 align-self: center;
                 margin-top: 0;
@@ -145,6 +145,15 @@ main {
     
             .coords {
                 font-size: 15px;
+                margin: 15px 0;
+                text-decoration: none;
+                color: $text;
+                cursor: pointer;
+    
+                &:hover {
+                    transform: translateX(2px);
+                    font-weight: 600;
+                }
             }
         }
     

@@ -31,6 +31,7 @@ const overlay = function overlay() {
     $(".overlay").toggle();
     $(".login").hide();
     $(".modal").hide();
+    $(".edit").hide();
 }
 
 const message = function message() {

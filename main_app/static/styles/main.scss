@@ -202,6 +202,7 @@ button, .button {
     backdrop-filter: blur(6px);
     // transform: scale(0);
     transition: .2s ease-in-out;
+    z-index: 2;
 }
 
 // Modals
@@ -263,43 +264,52 @@ button, .button {
         }
     }
 
-    .buttons {
-        margin-top: 20px;
-        display: flex;
-        justify-content: right;
-
-        .button {
-            background-color: $meddark;
-            color: $text;
     
-            &:hover {
-                background-color: scale-color($meddark, $lightness: +15%);
-                transform: scale(1.05);
-            }
-    
-            &:active {
-                -webkit-box-shadow: 0 3px 0 $meddark;
-                box-shadow: 0 3px 0 $meddark;
-                margin-top: 3px;
-                margin-bottom: -3px;
-            }
-        }
-    
-        button {
-            background-color: $medlight;
-            opacity: .7;
-            margin-right: 10px;
-    
-            &:hover {
-                opacity: 1;
-                transform: scale(1.05);
-            }
-        }
-    }
 }
 @media only screen and (max-width: 450px) {
     .modal, .login, .edit {
         min-width: 100vw;
+    }
+}
+
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: right;
+    gap: 10px;
+
+    .button {
+        background-color: $meddark;
+        color: $text;
+
+        &:hover {
+            background-color: scale-color($meddark, $lightness: +15%);
+            transform: scale(1.05);
+            opacity: 1;
+        }
+
+        &:active {
+            -webkit-box-shadow: 0 3px 0 $meddark;
+            box-shadow: 0 3px 0 $meddark;
+            margin-top: 3px;
+            margin-bottom: -3px;
+        }
+    }
+    
+    .cancel {
+        background-color: $med;
+        opacity: .5;
+    }
+
+    button {
+        background-color: $medlight;
+        opacity: .7;
+
+        &:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
     }
 }
 

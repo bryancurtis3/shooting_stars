@@ -47,7 +47,7 @@ main {
         justify-content: space-between;
         padding: 0 5px; // padding?
 
-        h4 {
+        a {
             display: inline;
             align-self: center;
             margin-top: 0;
@@ -62,10 +62,9 @@ main {
             text-decoration: none;
             color: $text;
             cursor: pointer;
-            transition: .1s ease-in-out;
 
             &:hover {
-                // transform: scale(1.05);
+                transform: translateX(2px);
                 font-weight: 600;
             }
         }
@@ -115,6 +114,7 @@ main {
             display: flex;
             justify-content: space-between;
             margin-top: 30px;
+            gap: 10px;
         }
     }
 }

@@ -117,7 +117,7 @@ main {
     .posts .post .subtitle {
       display: flex;
       justify-content: space-between; }
-      .posts .post .subtitle h4 {
+      .posts .post .subtitle a {
         display: inline;
         align-self: center;
         margin-top: 0;
@@ -125,7 +125,14 @@ main {
         font-size: 18px;
         font-weight: 500; }
       .posts .post .subtitle .coords {
-        font-size: 15px; }
+        font-size: 15px;
+        margin: 15px 0;
+        text-decoration: none;
+        color: #f3e0ea;
+        cursor: pointer; }
+        .posts .post .subtitle .coords:hover {
+          transform: translateX(2px);
+          font-weight: 600; }
     .posts .post img {
       width: 100%;
       max-height: 600px;
