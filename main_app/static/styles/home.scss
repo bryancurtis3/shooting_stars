@@ -137,7 +137,9 @@ h1 {
 
     .timedate, .weather {
         &:hover {
-            outline: 1px solid (--light);
+            // This used to have alpha
+            outline: 1px solid var(--light);
+            -webkit-box-shadow: 0 0 10px 6px rgba(var(--light), .6);
             box-shadow: 0 0 10px 6px rgba(var(--light), .6);
         }
     }
@@ -180,11 +182,6 @@ h1 {
                 .fas, .fab {
                     font-size: 24px;
                 }
-
-                // img {
-                //     height: 24px;
-                //     width: 24px;
-                // }
             }
 
             p {

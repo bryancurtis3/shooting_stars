@@ -1,12 +1,5 @@
-// var(--dark): rgb(53, 54, 58);
-// var(--meddark): rgba(32, 33, 36, 1);
-// var(--dark): #231942;
-// var(--meddark): #5e548e;
-// var(--med): #9f86c0;
-// var(--medlight): #be95c4;
-// var(--light): #e0b1cb;
-// var(--text): #f3e0ea;
 
+// CSS variables (used instead of SASS variables for simpler light/dark mode integration)
 :root {
     --dark: #231942;
     --meddark: #5e548e;
@@ -30,40 +23,3 @@
 }
 // $test: #db80a3c5;
 // $test2: #e277a0b3;
-
-// $themes: (
-//         light: (
-//                 card-bg: $bg--card--light,
-//                 text: var(--text)--light,
-//                 text-secondary: var(--text)--2--light,
-//                 link: $brand--blue--light,
-//                 hover: $hover--light,
-//                 border: $border--light
-//         ),
-//         dark: (
-//                 dark: var(--dark),
-//                 meddark: var(--meddark),
-//                 med: var(--med),
-//                 medlight: var(--medlight),
-//                 light: var(--light),
-//                 text: var(--text)
-//         ),
-// );
-
-// @mixin themed() {
-//     @each $theme, $map in $themes {
-//       .theme--#{$theme} & {
-//         $theme-map: () !global;
-//         @each $key, $submap in $map {
-//           $value: map-get(map-get($themes, $theme), '#{$key}');
-//           $theme-map: map-merge($theme-map, ($key: $value)) !global;
-//         }
-//         @content;
-//         $theme-map: null !global;
-//       }
-//     }
-//   }
-  
-//   @function t($key) {
-//     @return map-get($theme-map, $key);
-//   }
