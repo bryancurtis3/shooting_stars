@@ -78,7 +78,24 @@ Current ready features:
 
 ## User Stories
 
+Home Page:
+- Users locations are used to serve local meteorological and astronomical data
+- Users can search for any location to get back its data
+- Users can see posts from the location they are looking at or go to view all posts
 
+Posts Index:
+- Users can view all the posts available
+- Users can click through to individual posts to see more details
+
+Post Detail Pages:
+- The owner of the post can edit or delete their post
+- Users can go to the location in Google Maps through a link
+- Users can search the database for other posts from the same location as the one they are viewing
+- Users have access to the post's full original image by clicking the image
+
+All Pages:
+- Users can go back to the homepage by clicking the logo in the nav
+- Users can login, signup, or logout
 
 ## Get In Touch
 

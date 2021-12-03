@@ -4,6 +4,8 @@ from django.shortcuts import render, redirect
 
 from django.urls import reverse
 
+from django.db.models import Q
+
 # from django.http import HttpResponse
 
 # Views imports
@@ -90,9 +92,31 @@ class Posts(TemplateView):
             query = query.replace(" ", "")
             latitude = query.split(",")[0]
             longitude = query.split(",")[1]
+
+            # Code for loose searching coord similarity
+            latOne = float(latitude)
+            latTwo = float(latitude)
+
+            longOne = float(longitude)
+            longTwo = float(longitude)
+
+            if latOne < 0:
+                latOne += .1
+                latTwo -= .1
+            else:
+                latOne -= .1
+                latTwo += .1
+
+            if longOne < 0:
+                longOne += .1
+                longTwo -= .1
+            else:
+                longOne -= .1
+                longTwo += .1
+
             context["posts"] = Post.objects.filter(
-                lat__istartswith = latitude,
-                long__istartswith = longitude
+                Q(lat__gte = latOne) & Q(lat__lte = latTwo) &
+                Q(long__gte = longOne) & Q(long__lte = longTwo)
             ).order_by('created_at')
         else:
             context["posts"] = Post.objects.all().order_by('created_at')
