@@ -1,0 +1,120 @@
+@import '../variables';
+
+main {
+    display: grid;
+    // This needs to be reset on this page for some reason
+    min-height: 0;
+}
+
+.post {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: $meddark;
+    border-radius: 6px;
+    justify-self: center;
+
+    .main-title {
+        display: flex;
+        gap: 20px;
+        justify-content: space-between;
+
+        .title {
+            font-size: 42px;
+            margin: 0 0 12px 0;
+            padding: 0 5px; // padding?
+        }
+
+        a {
+            height: 42px;
+        }
+
+        .fas {
+            font-size: 42px;
+            color: $text;
+            transition: .1s ease-in-out;
+            color: $light;
+
+            &:hover {
+                transform: scale(1.1);
+                color: scale-color($light, $lightness: +30%);
+            }
+        }
+    }
+
+    .subtitle {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 5px; // padding?
+
+        a {
+            display: inline;
+            align-self: center;
+            margin-top: 0;
+            margin: 0;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .coords {
+            font-size: 15px;
+            margin: 15px 0;
+            text-decoration: none;
+            color: $text;
+            cursor: pointer;
+
+            &:hover {
+                transform: translateX(2px);
+                font-weight: 600;
+            }
+        }
+    }
+
+    img {
+        width: 100%;
+        max-height: 1200px;
+        border-radius: 4px;
+        object-fit: cover;
+        object-position: 50% 40%;
+        -webkit-box-shadow: 0 3px 10px 2px $dark;
+        box-shadow: 0 3px 10px 2px $dark;
+    }
+
+    .description {
+        font-size: 18px;
+        padding: 0 5px; 
+    }
+}
+
+// This is the delete modal
+.modal {
+    height: 160px;
+    margin-top: -80px;
+
+    h2 {
+        margin-top: 0;
+    }
+}
+
+// Edit modal
+.edit {
+    display: none;
+    height: max-content;
+}
+@media only screen and (max-width: 450px) {
+    .edit {
+        height: 100vh;
+        width: 100vw;
+
+        h3 {
+            margin-top: 10px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 10px;
+        }
+    }
+}

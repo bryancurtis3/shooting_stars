@@ -1,0 +1,11 @@
+
+form {
+    display: grid;
+    place-items: center;
+
+    p {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}
