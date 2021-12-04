@@ -28,9 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*https://docs.google.com/document/d/1T1JOfeT6oHq1E5uFTHOOQ4M6ZZ4yS0bmjghfA9ysWLI/edit']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
