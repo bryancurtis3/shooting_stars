@@ -41,10 +41,6 @@ const getData = function getData(place) {
     
         const rise = parseInt(nextSunrise[0] + nextSunrise[1]);
         const set = parseInt(sunset[0] + sunset[1]) + 12;
-        // const night = set - rise;
-    
-        // console.log(rise);
-        // console.log(set);
         
         // After sunset
         for (let i = set + 1; i < 24; i++) {
@@ -164,7 +160,6 @@ const getData = function getData(place) {
 
         $("#phase").text("Moon Phase: " + moon_phase);
         $("#illumination").text("Illumination: " + moon_illumination + "%");
-        // $("#hours").text("Moonset: " + moonset);
         
     }))
     .catch(err => {
