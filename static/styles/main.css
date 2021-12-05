@@ -75,7 +75,8 @@ nav {
       display: none; }
     nav .nav-right .burger {
       display: block;
-      height: 26px; }
+      height: 26px;
+      cursor: pointer; }
     nav .nav-right .fas {
       display: block; } }
 a {

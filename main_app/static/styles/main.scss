@@ -56,11 +56,6 @@ nav {
         }
     }
 
-    // @media (prefers-color-scheme: dark) {
-    //     .logo {
-    //         color: $dark;
-    //     }
-    // }
 
     a, button {
         font-weight: 500;
@@ -131,6 +126,7 @@ nav {
             .burger {
                 display: block;
                 height: 26px;
+                cursor: pointer;
             }
 
             .fas {

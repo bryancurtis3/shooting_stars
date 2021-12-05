@@ -8,7 +8,8 @@ main {
   width: 100%;
   max-width: 800px;
   justify-self: center;
-  display: flex;
+  display: grid;
+  grid-template-columns: 120px 1fr;
   gap: 40px;
   justify-content: center; }
   .header a {
@@ -18,15 +19,11 @@ main {
     margin: auto 0;
     width: 116px;
     padding-left: 10px; }
-  @media only screen and (min-width: 600px) {
-    .header a {
-      font-size: 32px;
-      width: 170px; } }
   .header .search {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: calc(100% - 156px); }
+    width: 100%; }
     .header .search .search-icon-holder {
       width: 100%;
       min-width: 100px; }
@@ -50,6 +47,13 @@ main {
       .header .search input::placeholder {
         color: #9f86c0; }
 
+@media only screen and (min-width: 600px) {
+  .header {
+    grid-template-columns: 170px 1fr; }
+    .header a {
+      font-size: 32px;
+      width: 170px; } }
+
 .new-post {
   height: 50px;
   width: 100%;
@@ -70,11 +74,33 @@ main {
     box-shadow: 0 0 6px 4px rgba(224, 177, 203, 0.6); }
     .new-post:hover .fa-plus {
       transform: scalex(1.1); }
-  .new-post .fa-plus {
-    font-size: 32px;
-    place-self: center;
-    transition: .1s ease-in-out;
-    cursor: pointer; }
+
+.fa-plus {
+  font-size: 32px;
+  place-self: center;
+  transition: .1s ease-in-out;
+  cursor: pointer; }
+
+.new-post-desktop {
+  display: none;
+  width: 50%;
+  height: 50px;
+  background-color: #5e548e;
+  border-radius: 6px; }
+
+@media only screen and (min-width: 500px) {
+  .new-post {
+    display: none; }
+  .new-post-desktop {
+    display: grid;
+    place-items: center; }
+  .header {
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 80px;
+    place-items: center; }
+    .header .search {
+      grid-column: span 2; } }
 
 .posts {
   width: 100%;
@@ -135,6 +161,10 @@ main {
           font-weight: 600; }
     .posts .post .description-full {
       display: none; }
+
+@media only screen and (max-width: 450px) {
+  .posts {
+    gap: 25px; } }
 
 .overlay {
   position: fixed;
