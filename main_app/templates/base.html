@@ -44,9 +44,9 @@
 
         {% if user.is_authenticated %}
             <div class="words">
-                <a href="/posts" title="All Posts">Posts</a>   
+                <a href="/posts" title="All Posts" class="nav-link">Posts</a>   
                 <div class="dropdown">
-                    <a onClick="dropdown()">{{user.username}}</a>
+                    <a onClick="dropdown()" class="nav-link">{{user.username}}</a>
                     <div class="dropdown-content">
                         <a href="/posts/?user={{user.pk}}" title="See your posts">Your Posts</a>
                         <a onClick="userUpdate()" title="User location update">Change Location</a>
@@ -67,9 +67,9 @@
             </div>
         {% else %}
             <div class="words">
-                <a href="/posts" title="All Posts">Posts</a>   
-                <a onClick="login()" title="User login">Login</a>
-                <a onClick="modal()" title="User signup">Signup</a>
+                <a href="/posts" title="All Posts" class="nav-link">Posts</a>   
+                <a onClick="login()" title="User login" class="nav-link">Login</a>
+                <a onClick="modal()" title="User signup" class="nav-link">Signup</a>
             </div>
 
             <div class="burger">
