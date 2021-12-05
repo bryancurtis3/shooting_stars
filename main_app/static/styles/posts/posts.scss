@@ -93,9 +93,9 @@ main {
 
     &:hover {
         transform: scaley(1.1);
-        outline: 1px solid rgba(var(--light), .1);
-        -webkit-box-shadow: 0 0 6px 4px rgba(var(--light), .6);
-        box-shadow: 0 0 6px 4px rgba(var(--light), .6);
+        outline: 1px solid var(--light);
+        -webkit-box-shadow: 0 0 6px 4px var(--light);
+        box-shadow: 0 0 6px 4px var(--light);
 
         .fa-plus {
             transform: scalex(1.1);
@@ -114,7 +114,7 @@ main {
     display: none;
     width: 50%;
     height: 50px;
-    background-color: $meddark;
+    background-color: var(--meddark);
     border-radius: 6px;
 }
 
@@ -126,6 +126,17 @@ main {
     .new-post-desktop {
         display: grid;
         place-items: center;
+
+        &:hover {
+            transform: scaley(1.1);
+            outline: 1px solid var(--light);
+            -webkit-box-shadow: 0 0 4px 3px var(--light);
+            box-shadow: 0 0 4px 3px var(--light);
+    
+            .fa-plus {
+                transform: scalex(1.1);
+            }
+        }
     }
 
     .header {
@@ -184,7 +195,7 @@ main {
                 font-size: 15px;
                 margin: 15px 0;
                 text-decoration: none;
-                color: $text;
+                color: var(--text);
                 cursor: pointer;
     
                 &:hover {

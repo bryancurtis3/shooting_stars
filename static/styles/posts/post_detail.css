@@ -61,24 +61,14 @@ main {
       font-size: 15px;
       margin: 15px 0;
       text-decoration: none;
-<<<<<<< HEAD
-      color: #f3e0ea;
-      cursor: pointer; }
-=======
       color: var(--text);
-      cursor: pointer;
-      transition: .1s ease-in-out; }
->>>>>>> themes
+      cursor: pointer; }
       .post .subtitle .coords:hover {
         transform: translateX(2px);
         font-weight: 600; }
   .post img {
     width: 100%;
-<<<<<<< HEAD
-    max-height: 1200px;
-=======
     max-height: 1500px;
->>>>>>> themes
     border-radius: 4px;
     object-fit: cover;
     object-position: 50% 40%;

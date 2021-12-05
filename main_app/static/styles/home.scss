@@ -135,10 +135,11 @@ h1 {
     gap: 20px;
 
     .timedate, .weather {
+        transition: .05s eas;
         &:hover {
-            outline: 1px solid rgba(var(--light), .6);
-            -webkit-box-shadow: 0 0 10px 6px rgba(var(--light), .6);
-            box-shadow: 0 0 10px 6px rgba(var(--light), .6);
+            outline: 1px solid var(--light);
+            -webkit-box-shadow: 0 0 10px 6px var(--light);
+            box-shadow: 0 0 6px 3px var(--light);
         }
     }
 
