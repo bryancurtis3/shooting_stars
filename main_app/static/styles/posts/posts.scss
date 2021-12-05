@@ -41,7 +41,7 @@ main {
             padding-left: 15px;
             padding-top: 10px;
             font-size: 26px;
-            color: $med;
+            color: var(--med);
             z-index: 10;
         }
         
@@ -52,13 +52,13 @@ main {
             padding: 10px 20px 10px 55px;
 
             font-size: 18px;
-            color: $text;
-            background-color: $meddark;
-            border-color: $medlight;
+            color: var(--text);
+            background-color: var(--meddark);
+            border-color: var(--medlight);
             border-radius: 6px;
     
             &::placeholder {
-                color: $med;
+                color: var(--med);
             }
         }
 
@@ -86,16 +86,16 @@ main {
     margin: 20px 0;
     display: flex;
     justify-content: center;
-    background-color: $meddark;
+    background-color: var(--meddark);
     border-radius: 6px;
     cursor: pointer;
     transition: .15s ease-in-out;
 
     &:hover {
         transform: scaley(1.1);
-        outline: 1px solid rgba($light, .1);
-        -webkit-box-shadow: 0 0 6px 4px rgba($light, .6);
-        box-shadow: 0 0 6px 4px rgba($light, .6);
+        outline: 1px solid rgba(var(--light), .1);
+        -webkit-box-shadow: 0 0 6px 4px rgba(var(--light), .6);
+        box-shadow: 0 0 6px 4px rgba(var(--light), .6);
 
         .fa-plus {
             transform: scalex(1.1);
@@ -149,7 +149,7 @@ main {
 
     .post {
         padding: 20px;
-        background-color: $meddark;
+        background-color: var(--meddark);
         border-radius: 6px;
         width: inherit;
         max-width: 800px;
@@ -158,12 +158,12 @@ main {
             margin: 0 0 15px 0;
             font-size: 36px;
             font-weight: 600;
-            color: $text;
+            color: var(--text);
             text-decoration: none;
             transition: .1s ease-in-out;
 
             &:hover {
-                color: scale-color($text, $lightness: +50%);
+                filter: brightness(140%);
             }
         }
     
@@ -200,8 +200,8 @@ main {
             border-radius: 4px;
             object-fit: cover;
             object-position: 50% 40%;
-            -webkit-box-shadow: 0 3px 10px 2px $dark;
-            box-shadow: 0 3px 10px 2px $dark;
+            -webkit-box-shadow: 0 3px 10px 2px #272727;
+            box-shadow: 0 3px 10px 2px #272727;
         }
 
     
@@ -210,11 +210,11 @@ main {
 
             span {
                 margin-left: 10px;
-                color: $light;
+                color: var(--light);
                 cursor: pointer;
 
                 &:hover {
-                    color: $text;
+                    color: var(--text);
                     font-weight: 600;
                 }
             }

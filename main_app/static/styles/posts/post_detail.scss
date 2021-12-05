@@ -10,7 +10,7 @@ main {
     width: 100%;
     max-width: 800px;
     padding: 20px;
-    background-color: $meddark;
+    background-color: var(--meddark);
     border-radius: 6px;
     justify-self: center;
 
@@ -31,13 +31,13 @@ main {
 
         .fas {
             font-size: 42px;
-            color: $text;
+            color: var(--text);
             transition: .1s ease-in-out;
-            color: $light;
+            color: var(--light);
 
             &:hover {
                 transform: scale(1.1);
-                color: scale-color($light, $lightness: +30%);
+                filter: brightness(120%);
             }
         }
     }
@@ -60,7 +60,7 @@ main {
             font-size: 15px;
             margin: 15px 0;
             text-decoration: none;
-            color: $text;
+            color: var(--text);
             cursor: pointer;
 
             &:hover {
@@ -72,12 +72,12 @@ main {
 
     img {
         width: 100%;
-        max-height: 1200px;
+        max-height: 1500px;
         border-radius: 4px;
         object-fit: cover;
         object-position: 50% 40%;
-        -webkit-box-shadow: 0 3px 10px 2px $dark;
-        box-shadow: 0 3px 10px 2px $dark;
+        -webkit-box-shadow: 0 3px 10px 2px var(--dark);
+        box-shadow: 0 3px 10px 2px var(--dark);
     }
 
     .description {
