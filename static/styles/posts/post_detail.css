@@ -9,13 +9,13 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    --dark: #e0b1cb;
-    --meddark: #be95c4;
-    --med: #9f86c0;
-    --medlight: #be95c4;
-    --light: #5e548e;
-    --text: #50487a;
-    --lum: #855992d1; } }
+    --dark: #79a891;
+    --meddark: #e07a5f;
+    --med: #3d405b;
+    --medlight: #f4f1de;
+    --light: #f5cb89;
+    --text: #f5f3e9;
+    --lum: #3d405bd1; } }
 
 main {
   display: grid;
@@ -57,23 +57,23 @@ main {
       margin: 0;
       font-size: 18px;
       font-weight: 500; }
+      .post .subtitle a:hover {
+        transform: translateX(2px);
+        font-weight: 600; }
     .post .subtitle .coords {
       font-size: 15px;
       margin: 15px 0;
       text-decoration: none;
       color: var(--text);
       cursor: pointer; }
-      .post .subtitle .coords:hover {
-        transform: translateX(2px);
-        font-weight: 600; }
   .post img {
     width: 100%;
     max-height: 1500px;
     border-radius: 4px;
     object-fit: cover;
     object-position: 50% 40%;
-    -webkit-box-shadow: 0 3px 10px 2px var(--dark);
-    box-shadow: 0 3px 10px 2px var(--dark); }
+    -webkit-box-shadow: 0 3px 10px 2px #272727;
+    box-shadow: 0 3px 10px 2px #272727; }
   .post .description {
     font-size: 18px;
     padding: 0 5px; }

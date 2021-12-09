@@ -54,6 +54,11 @@ main {
             margin: 0;
             font-size: 18px;
             font-weight: 500;
+
+            &:hover {
+                transform: translateX(2px);
+                font-weight: 600;
+            }
         }
 
         .coords {
@@ -62,11 +67,6 @@ main {
             text-decoration: none;
             color: var(--text);
             cursor: pointer;
-
-            &:hover {
-                transform: translateX(2px);
-                font-weight: 600;
-            }
         }
     }
 
@@ -76,8 +76,8 @@ main {
         border-radius: 4px;
         object-fit: cover;
         object-position: 50% 40%;
-        -webkit-box-shadow: 0 3px 10px 2px var(--dark);
-        box-shadow: 0 3px 10px 2px var(--dark);
+        -webkit-box-shadow: 0 3px 10px 2px #272727;
+        box-shadow: 0 3px 10px 2px #272727;
     }
 
     .description {

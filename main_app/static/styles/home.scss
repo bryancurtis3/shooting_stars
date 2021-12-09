@@ -71,6 +71,12 @@ h1 {
             }
         }
     }
+
+    @media (prefers-color-scheme: light) {
+        #posts-from-here {
+            // color: var(--med)
+        }
+    }
 }
 
 
@@ -125,6 +131,11 @@ h1 {
         height: inherit;
         border: 5px solid var(--meddark);
         border-radius: 6px;
+    }
+}
+@media (prefers-color-scheme: light) {
+    .iframe {
+        opacity: 1;
     }
 }
 
