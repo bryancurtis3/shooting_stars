@@ -10,13 +10,13 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    --dark: #79a891;
-    --meddark: #e07a5f;
+    --dark: #89b0ae;
+    --meddark: #bee3db;
     --med: #3d405b;
     --medlight: #f4f1de;
-    --light: #f5cb89;
-    --text: #f5f3e9;
-    --lum: #3d405bd1; } }
+    --light: #ffd6ba;
+    --text: #555b6e;
+    --lum: #555b6ed1; } }
 
 * {
   box-sizing: border-box; }
